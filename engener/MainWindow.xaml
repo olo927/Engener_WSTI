@@ -1,0 +1,32 @@
+﻿<Window x:Class="engener.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:engener"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="200" Background="Red">
+    <Grid Background="Black" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Zaloguj do systemu jako..." HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row ="0" FontSize="17" Foreground="White" FontWeight="Bold"/>
+        <Separator Background="White">
+            
+        </Separator>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="LoginAdminButton" Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column ="0" FontSize="13" Foreground="Blue" Margin="10 0 0 0" Padding="2"  Click="LoginAdminButton_Click"/>
+            <Button x:Name="LoginUserButton" Content="Użytkownik" HorizontalAlignment="Right"  VerticalAlignment="Top" Grid.Column ="1" FontSize="13" Foreground="Blue" Margin="0 0 10 0" Padding="2" Click="LoginUserButton_Clicked"/>
+        </Grid>
+
+        <Button x:Name="NewUserButton" Content="Zarejestruj nowe konto" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row ="2" FontSize="13" Foreground="Blue" Padding="2" Click="NewUserButton_Click"/>
+
+    </Grid>
+</Window>
