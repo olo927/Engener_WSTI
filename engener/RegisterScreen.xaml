@@ -8,7 +8,8 @@
         Title="RegisterScreen" Height="500" Width="800" Background="Red" >
     <Grid Background="Black" Margin="5px">
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="0,5*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="6*"/>
@@ -25,8 +26,8 @@
             </Grid.ColumnDefinitions>
             <Label Content="Zarejestruj się" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.Column="1" Padding="3"/>
         </Grid>
-        <Separator Background="White" VerticalAlignment="Center"/>
-        <Grid Grid.Row="1">
+        <Separator Background="White" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -36,7 +37,7 @@
             <TextBox x:Name="LoginTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Grid.Column="1" Margin="0,5,0,0" />
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -45,7 +46,7 @@
             <Label Content="Podaj hasło:" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16" Grid.Column="0" />
             <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" MaxLength="7" PasswordChanged="PasswordBox_PasswordChanged" Grid.Column="1" Margin="0,5,0,0"/>
         </Grid>
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition/>
@@ -55,7 +56,7 @@
             <PasswordBox x:Name="ConfirmPasswordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" MaxLength="7" Grid.Column="1" Margin="0,5,0,0" />
             <Label x:Name="PasswordErrorLabel" Content="Hasła są niezgodne" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"  Grid.Column="2"  />
         </Grid>
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -64,7 +65,7 @@
             <Label Content="Podaj bazę:" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16" Grid.Column="0" />
             <TextBox x:Name="BaseNameTextBox" HorizontalAlignment="Center"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Grid.Column="1" Margin="0,5,0,0" />
         </Grid>
-        <Grid Grid.Row="5">
+        <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -73,7 +74,7 @@
             <Label Content="Podaj opis bazy:" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16" Grid.Column="0" />
             <TextBox x:Name="BaseDescriptionTextBox" HorizontalAlignment="Center" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" Width="150" Grid.Column="1" Margin="0,5,0,0" />
         </Grid>
-        <Grid Grid.Row="6">
+        <Grid Grid.Row="7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -82,7 +83,7 @@
             <Label Content="Podpowiedź do hasła:" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16" Grid.Column="0" />
             <TextBox x:Name="PasswordHintTextBox" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Grid.Column="1" Margin="0,5,0,0"/>
         </Grid>
-        <Grid Grid.Row="7">
+        <Grid Grid.Row="8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,9 +29,11 @@ namespace engener
             Description
         };
         private string[] names = new string[6];
+        public List<Admin> admins;
         public RegisterScreen()
         {
             InitializeComponent();
+            this.admins = FileAdapter.GetAllAdmins();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -41,19 +45,43 @@ namespace engener
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            FillArrayOfNames();
-            int error = AllTextBoxIsNotEmpty();
-            NamesOfTextBoxs namesOfTextBoxs = (NamesOfTextBoxs)error;
-            if (error != -1)
+            Admin newAdmin = new Admin(LoginTextBox.Text, PasswordBox.Password, PasswordHintTextBox.Text, BaseNameTextBox.Text, BaseDescriptionTextBox.Text);
+
+            if (!File.Exists(newAdmin.baseName + ".bok"))
             {
-                MessageBox.Show("Błąd, nie podano wartości pola " + namesOfTextBoxs.ToString(), "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                bool isUniqLogin = true;
+                foreach(Admin adm in admins)
+                {
+                    if(adm.name == newAdmin.name)
+                    {
+                        MessageBox.Show("Taki login jest już zajęty");
+                        isUniqLogin = false;
+                        break;
+                    }
+                }
+                if (isUniqLogin)
+                {
+                    admins.Add(newAdmin);
+                    List<string> ListOfAdminsString = new List<string>();
+                    foreach(Admin admin in admins)
+                    {
+                        ListOfAdminsString.Add(admin.ToCodedString());
+                    }
+                    File.WriteAllLines("admin.ame", ListOfAdminsString);
+                    //przejście do tworzenia bazy wiedzy i reguł
+                }
             }
-            if (!names[1].Equals(names[2]))
+            else
             {
-                MessageBox.Show("Błąd, podane hasła muszą być jednakowe","Błąd",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Baza  już istnieje!");
             }
+            
+            
                        
         }
+
+        
+
         private void FillArrayOfNames()
         {
             names[0] = LoginTextBox.Text;

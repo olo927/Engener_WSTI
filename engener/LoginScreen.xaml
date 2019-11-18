@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="LoginScreen" Height="300" Width="600" Background="Red">
+        Title="LoginScreen" Height="370" Width="600" Background="Red">
     <Grid Background="Black" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -19,7 +19,7 @@
 
     <Label Content="Logowanie się" HorizontalAlignment="Center" VerticalAlignment="Top"  Foreground="White" FontSize="16" FontWeight="Bold" Grid.Row="0"/>
 
-        <Separator Background="White" VerticalAlignment="Bottom"  />
+        <Separator Background="White" VerticalAlignment="Bottom"  Grid.Row="0"  />
          <Label Content="Podaj swój login:" HorizontalAlignment="Center"  VerticalAlignment="Center"  Foreground="White"  FontSize="13" Grid.Row="1" />
         <TextBox HorizontalAlignment="Center"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  Foreground="Blue" FontSize="13"  Grid.Row="2" />
         <Label Content="Podaj swoje hasło:" HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="White"    FontSize="13" Grid.Row="3" />

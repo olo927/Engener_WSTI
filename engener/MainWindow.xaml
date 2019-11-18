@@ -7,26 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="300" Background="Red">
     <Grid Background="Black" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="121*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="Zaloguj do systemu jako..." HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row ="0" FontSize="17" Foreground="White" FontWeight="Bold"/>
-        <Separator Background="White">
-            
-        </Separator>
-        
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="LoginAdminButton" Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column ="0" FontSize="13" Foreground="Blue" Margin="10 0 0 0" Padding="2"  Click="LoginAdminButton_Click"/>
-            <Button x:Name="LoginUserButton" Content="Użytkownik" HorizontalAlignment="Right"  VerticalAlignment="Top" Grid.Column ="1" FontSize="13" Foreground="Blue" Margin="0 0 10 0" Padding="2" Click="LoginUserButton_Clicked"/>
+        <Label Content="Zaloguj do systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row ="0" FontSize="17" Foreground="White" FontWeight="Bold" Grid.ColumnSpan="2" Margin="57,0,0,0"/>
+
+
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,66,0,0" Grid.RowSpan="2">
+
+            <Button x:Name="LoginAdminButton" Content=" Zaloguj do Admin" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="13" Foreground="Blue" Padding="2"  Click="LoginAdminButton_Click"/>
         </Grid>
 
-        <Button x:Name="NewUserButton" Content="Zarejestruj nowe konto" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row ="2" FontSize="13" Foreground="Blue" Padding="2" Click="NewUserButton_Click"/>
+        <Button x:Name="NewUserButton" Content="Zarejestruj nowe konto" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13" Foreground="Blue" Padding="2" Click="NewUserButton_Click" Grid.ColumnSpan="2" Margin="70,132,0,0" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>

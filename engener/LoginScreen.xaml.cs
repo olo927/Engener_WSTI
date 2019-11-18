@@ -17,11 +17,9 @@ namespace engener
     /// </summary>
     public partial class LoginScreen : Window
     {
-        private bool isUser;
-        public LoginScreen(bool isUser)
+        public LoginScreen()
         {
             InitializeComponent();
-            this.isUser = isUser;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)

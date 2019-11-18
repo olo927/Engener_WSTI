@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace engener
 {
@@ -20,18 +21,14 @@ namespace engener
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Admin> admins;
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void LoginUserButton_Clicked(object sender, RoutedEventArgs e)
-        {
-            OpenLoginScreen(true);
-        }
-
         private void LoginAdminButton_Click(object sender, RoutedEventArgs e)
         {
-            OpenLoginScreen(false);
+            OpenLoginScreen();
         }
 
         private void NewUserButton_Click(object sender, RoutedEventArgs e)
@@ -41,11 +38,14 @@ namespace engener
             this.Close();
         }
 
-        private void OpenLoginScreen(bool isUser)
+        private void OpenLoginScreen()
         {
-            LoginScreen loginScreen = new LoginScreen(isUser);
+            //logowanie z pliku sprawdzanie
+            LoginScreen loginScreen = new LoginScreen();
             loginScreen.Show();
             this.Close();
         }
+
+  
     }
 }
