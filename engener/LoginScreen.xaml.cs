@@ -21,10 +21,33 @@ namespace engener
         {
             InitializeComponent();
         }
-
+        public List<Admin> admins;
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            this.admins = FileAdapter.GetAllAdmins();
+            string loginStr = login.Text;
+            string passStr = pass.Password;
+            bool isLoginCorrect = false;
+            foreach(Admin admin in admins)
+            {
+                if(admin.name == loginStr && admin.pass == passStr)
+                {
+                    //otwórz baze z admin.base
+                    isLoginCorrect = true;
+                    break;
+                }
 
+            }
+            if (isLoginCorrect)
+            {
+                BaseEditor baseEditor = new BaseEditor();
+                baseEditor.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("wpisałeś błędne hasło lub login", "Błąd logowania");
+            }
         }
     }
 }

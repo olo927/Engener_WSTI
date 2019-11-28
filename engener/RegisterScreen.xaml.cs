@@ -47,7 +47,7 @@ namespace engener
         {
             Admin newAdmin = new Admin(LoginTextBox.Text, PasswordBox.Password, PasswordHintTextBox.Text, BaseNameTextBox.Text, BaseDescriptionTextBox.Text);
 
-            if (!File.Exists(newAdmin.baseName + ".bok"))
+            if (!File.Exists("data\\" + newAdmin.baseName + ".bok"))
             {
                 bool isUniqLogin = true;
                 foreach(Admin adm in admins)
@@ -67,20 +67,28 @@ namespace engener
                     {
                         ListOfAdminsString.Add(admin.ToCodedString());
                     }
-                    File.WriteAllLines("admin.ame", ListOfAdminsString);
-                    //przejście do tworzenia bazy wiedzy i reguł
+                    File.WriteAllLines("data\\admin.ame", ListOfAdminsString);
+                    CreateFiles(newAdmin);
+                    BaseEditor baseEditor = new BaseEditor();
+                    baseEditor.Show();
+                    this.Close();
+                    
                 }
             }
             else
             {
-                MessageBox.Show("Baza  już istnieje!");
+                MessageBox.Show("Baza już istnieje!");
             }
             
             
                        
         }
 
-        
+        private void CreateFiles(Admin admin)
+        {
+            File.Create("data\\" + admin.baseName + ".bok");
+            File.Create("data\\" + admin.baseName + ".boi");
+        }
 
         private void FillArrayOfNames()
         {
