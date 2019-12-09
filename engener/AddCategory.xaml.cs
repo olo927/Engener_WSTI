@@ -13,27 +13,20 @@ using System.Windows.Shapes;
 namespace engener
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddIngredence.xaml
+    /// Logika interakcji dla klasy AddCategory.xaml
     /// </summary>
-    public partial class AddIngredence : Window
+    public partial class AddCategory : Window
     {
-        string baseName;
-        List<string> ListOfCategory;
-        public AddIngredence(string baseName)
+        private string baseName;
+        public AddCategory(string baseName)
         {
             InitializeComponent();
             this.baseName = baseName;
-            ListOfCategory = FileAdapter.GetAllCategory(baseName);
-            Category.ItemsSource = ListOfCategory;
         }
 
-
-
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            string ingr = Ingedence.Text;
-            string cat = Category.Text;
-            FileAdapter.SaveNewIngredient(baseName, cat, ingr);
+            FileAdapter.AddNewCategoryToFile(baseName,CategoryTextBox.Text);
             this.Close();
         }
 

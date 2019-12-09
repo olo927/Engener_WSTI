@@ -17,9 +17,12 @@ namespace engener
     /// </summary>
     public partial class BaseEditor : Window
     {
-        public BaseEditor()
+        string baseName;
+        public BaseEditor(string baseName)
         {
             InitializeComponent();
+            this.baseName = baseName;
+            Title = baseName;
         }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
@@ -31,9 +34,15 @@ namespace engener
 
         private void AddIngridence_Click(object sender, RoutedEventArgs e)
         {
-            AddIngredence addIngridence = new AddIngredence();
+            AddIngredence addIngridence = new AddIngredence(baseName);
             addIngridence.Show();
             
+        }
+
+        private void AddCat_Click(object sender, RoutedEventArgs e)
+        {
+            AddCategory addCategory = new AddCategory(baseName);
+            addCategory.Show();
         }
     }
 }

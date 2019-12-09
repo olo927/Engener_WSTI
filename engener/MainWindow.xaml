@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300" Background="Red">
+        Title="System Wnioskujący" Height="300" Width="300" Background="Red">
     <Grid Background="Black" Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="159*"/>
@@ -22,7 +22,7 @@
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,66,0,0" Grid.RowSpan="2">
 
-            <Button x:Name="LoginAdminButton" Content=" Zaloguj do Admin" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="13" Foreground="Blue" Padding="2"  Click="LoginAdminButton_Click"/>
+            <Button x:Name="LoginAdminButton" Content=" Zaloguj" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="13" Foreground="Blue" Padding="2"  Click="LoginAdminButton_Click"/>
         </Grid>
 
         <Button x:Name="NewUserButton" Content="Zarejestruj nowe konto" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13" Foreground="Blue" Padding="2" Click="NewUserButton_Click" Grid.ColumnSpan="2" Margin="70,132,0,0" Grid.RowSpan="2"/>

@@ -28,19 +28,21 @@ namespace engener
             string loginStr = login.Text;
             string passStr = pass.Password;
             bool isLoginCorrect = false;
+            string baseName = "";
             foreach(Admin admin in admins)
             {
                 if(admin.name == loginStr && admin.pass == passStr)
                 {
                     //otwórz baze z admin.base
                     isLoginCorrect = true;
+                    baseName = admin.baseName;
                     break;
                 }
 
             }
             if (isLoginCorrect)
             {
-                BaseEditor baseEditor = new BaseEditor();
+                BaseEditor baseEditor = new BaseEditor(baseName);
                 baseEditor.Show();
                 this.Close();
             }

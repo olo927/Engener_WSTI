@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="BaseEditor" Height="450" Width="800">
-    <Grid>
+        Title="BaseEditor" Height="450" Width="800" >
+    <Grid Background="Red">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -20,14 +21,15 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="Label"  Grid.Row="0" HorizontalAlignment="Left" Margin="189,10,0,0" VerticalAlignment="Top"/>
-            <Button Content="Dodaj Regułę" Grid.Row="1"/>
-            <Button x:Name="Add" Content="Dodaj Składową" Grid.Row="2" Click="AddIngridence_Click"/>
-            <Button Content="Usuń Regułę" Grid.Row="3"/>
-            <Button Content="Usuń Baze" Grid.Row="4"/>
-            <Button x:Name="LogOut" Content="Wyloguj"  Grid.Row="5" Click="LogOut_Click"/>
+            <Label Content="Baza wiedzy"  Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic" />
+            <Button Content="Dodaj Regułę" Grid.Row="1" FontSize="14" FontStyle="Italic" Background="{x:Null}"/>
+            <Button x:Name="Add" Content="Dodaj Składową" Grid.Row="2" Click="AddIngridence_Click" FontSize="14" Background="Aquamarine" FontStyle="Italic"/>
+            <Button x:Name="AddCat" Content="Dodaj Kategorie" Grid.Row="3"  FontSize="14" Background="Aquamarine" FontStyle="Italic" Click="AddCat_Click"/>
+            <Button Content="Usuń Regułę" Grid.Row="4" FontSize="14" Background="Aquamarine" FontStyle="Italic"/>
+            <Button Content="Usuń Baze" Grid.Row="5" FontSize="14" Background="Aquamarine" FontStyle="Italic"/>
+            <Button x:Name="LogOut" Content="Wyloguj"  Grid.Row="6" Click="LogOut_Click" FontSize="18" FontWeight="Bold" Background="White" FontStyle="Italic"/>
         </Grid>
-        
+
         <ListBox Grid.Column="1"/>
 
 

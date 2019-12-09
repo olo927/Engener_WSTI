@@ -19,16 +19,7 @@ namespace engener
     /// </summary>
     public partial class RegisterScreen : Window
     {
-        private enum NamesOfTextBoxs
-        {
-            Login = 0,
-            Password,
-            ConfirmPassword,
-            PasswordHint,
-            NameOfBase,
-            Description
-        };
-        private string[] names = new string[6];
+
         public List<Admin> admins;
         public RegisterScreen()
         {
@@ -69,7 +60,7 @@ namespace engener
                     }
                     File.WriteAllLines("data\\admin.ame", ListOfAdminsString);
                     CreateFiles(newAdmin);
-                    BaseEditor baseEditor = new BaseEditor();
+                    BaseEditor baseEditor = new BaseEditor(newAdmin.baseName);
                     baseEditor.Show();
                     this.Close();
                     
@@ -90,27 +81,6 @@ namespace engener
             File.Create("data\\" + admin.baseName + ".boi");
         }
 
-        private void FillArrayOfNames()
-        {
-            names[0] = LoginTextBox.Text;
-            names[1] = PasswordBox.Password;
-            names[2] = ConfirmPasswordBox.Password;
-            names[3] = PasswordHintTextBox.Text;
-            names[4] = BaseNameTextBox.Text;
-            names[5] = BaseDescriptionTextBox.Text;
-        }
-
-        private int AllTextBoxIsNotEmpty()
-        {
-            for(int i = 0; i < names.Length; i++)
-            {
-                if(names[i] == "" || names[i] == null)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {

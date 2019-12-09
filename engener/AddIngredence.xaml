@@ -5,12 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="AddIngredence" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="Add" Content="Dodaj" HorizontalAlignment="Left" Margin="453,314,0,0" VerticalAlignment="Top" Click="Add_Click"/>
-        <TextBox x:Name="Ingedence" HorizontalAlignment="Left" Margin="400,146,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Left" Margin="359,314,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Category" HorizontalAlignment="Left" Margin="261,103,0,0" VerticalAlignment="Top" Width="120"/>
+        Title="Dodaj Składnik" Height="450" Width="800" Background="Red">
+    <Grid Background="Black" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Label Content="Dodaj nową składową" HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="0,0,0,8" Foreground="White"   FontSize="18" FontWeight="Bold" />
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Label Content="Wybierz kategorię :" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,0,0,8" Foreground="White"   FontSize="14" />
+            <ComboBox x:Name="Category" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120"  Margin="0,8,0,0"/>
+        </Grid>
+
+       
+        <Grid Grid.Row="2">
+            <Label Content="Podaj pojęcie :" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,0,0,8" Foreground="White"   FontSize="14" />
+            <TextBox x:Name="Ingedence" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="Add" Content="Dodaj" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0"   Click="Add_Click" Grid.Column="0" Width="100"/>
+
+            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="8,5,0,0"  Grid.Column="1" Width="100" Click="Cancel_Click"  />
+        </Grid>
 
     </Grid>
 </Window>
