@@ -44,5 +44,12 @@ namespace engener
             AddCategory addCategory = new AddCategory(baseName);
             addCategory.Show();
         }
+
+        private void AddRule_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> temp = new List<string>();
+            AddRule addRule = new AddRule(baseName, temp);
+            addRule.Show();
+        }
     }
 }
