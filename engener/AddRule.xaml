@@ -5,18 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="AddRule" Height="450" Width="800">
-    <Grid>
+        Title="AddRule" Height="500" Width="800" Background="Red" MinWidth="500" MinHeight="400">
+    <Grid Background="Black" Margin="5px">
+        <Label x:Name="Titel" Content="Dodaj Regułę" Foreground="White" HorizontalAlignment="Center" FontSize="20"/>
         <Grid x:Name="comboBoxField" Width="300" Height="100">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="category" Grid.Column="0"/>
+            <Label x:Name="category" Grid.Column="0" Foreground="White" Content="Kategoria:" FontSize="16"/>
             <ComboBox x:Name="option" Grid.Column="1"/>
             
         </Grid>
-        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Margin="550,356,0,0" VerticalAlignment="Top" Click="Next_Click"/>
+        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Margin="550,356,0,0" VerticalAlignment="Top" Click="Next_Click" Width="75"/>
     </Grid>
 </Window>

@@ -43,6 +43,45 @@ namespace engener
             return category;
         }
 
+        internal static List<string> GetAllRule(string baseName)
+        {
+            List<string> category = GetAllCategory(baseName);
+            List<string> rules = new List<string>();
+            baseName = "data\\" + baseName + ".bok";
+            string[] lines = File.ReadAllLines(baseName);
+            foreach (string line in lines)
+            {
+                string[] splitedLine = line.Split(";");
+                string oneRule = "";
+                for (int i = 0; i < splitedLine.Length; i++) 
+                {
+                    try
+                    {
+                        string[] splitedRule = splitedLine[i].Split("_");
+                        if(i == splitedLine.Length - 1)
+                        {
+                            oneRule.Remove(oneRule.Length-1);
+                            oneRule += " = " + splitedRule[0] + " : " + splitedRule[1];
+                        }
+                        else
+                        {
+                            oneRule += splitedRule[0] + " : " + splitedRule[1] + " + ";
+                        }
+                    }
+                    catch
+                    {
+                        oneRule += "";
+                    }
+                    
+                    
+                }
+                
+                rules.Add(oneRule);
+            }
+
+            return rules;
+        }
+
         internal static void SaveNewIngredient(string baseName, string cat, string ingr)
         {
             baseName = "data\\" + baseName + ".boi";
@@ -79,6 +118,14 @@ namespace engener
             }
 
             return result;
+        }
+
+        internal static void SaveNewRule(string baseName, string rule)
+        {
+            baseName = "data\\" + baseName + ".bok";
+            List<string >lines = File.ReadAllLines(baseName).ToList();
+            lines.Add(rule);
+            File.WriteAllLines(baseName, lines);
         }
         //dla bazy wiedzy tutaj odczyty i zapisy
     }

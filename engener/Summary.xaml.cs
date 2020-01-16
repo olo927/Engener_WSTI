@@ -17,16 +17,38 @@ namespace engener
     /// </summary>
     public partial class Summary : Window
     {
-        public Summary(List<string> listOfChoosen, List<List<string>> ListOfIngredients)
+        public string rule, baseName;
+        public Summary(List<string> listOfChoosen, List<List<string>> ListOfIngredients, string baseName)
         {
+            rule = "";
+            this.baseName = baseName;
             InitializeComponent();
             SetLabel(listOfChoosen, ListOfIngredients);
         }
 
         private void SetLabel(List<string> listOfChoosen, List<List<string>> ListOfIngredients)
         {
+            string info = "";
+            for(int i = 0; i < listOfChoosen.Count; i++)
+            {
+                if(i== listOfChoosen.Count-1)
+                    info += "Wynik reguły " + ListOfIngredients[i][0] + " : " + listOfChoosen[i] + '\n';
+                else
+                    info += "Kategoria " + ListOfIngredients[i][0] + " : " + listOfChoosen[i] + '\n';
+                rule += ListOfIngredients[i][0] + "_" + listOfChoosen[i] + ";";
+            }
+            Info.Content = info;
+        }
 
-            throw new NotImplementedException();
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            FileAdapter.SaveNewRule(baseName,rule);
+            this.Close();
         }
     }
 }

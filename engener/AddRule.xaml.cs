@@ -35,8 +35,9 @@ namespace engener
         private void SetCategoryInWindow()
         {
             category.Content = ListOfIngredients[curentNumber][0];
-            List<string> options = ListOfIngredients[curentNumber];
-            options.Remove(ListOfIngredients[curentNumber][0]);
+            string[] options = new string[ListOfIngredients.Count];// = ListOfIngredients[curentNumber];
+            ListOfIngredients[curentNumber].CopyTo(options);
+            options[0] = "";
             option.ItemsSource = options;
         }
 
@@ -46,7 +47,7 @@ namespace engener
             curentNumber++;
             if (curentNumber >= ListOfIngredients.Count)
             {
-                Summary sum = new Summary(listOfChoosen, ListOfIngredients);
+                Summary sum = new Summary(listOfChoosen, ListOfIngredients, baseName);
                 sum.Show();
 
                 this.Close();
@@ -59,7 +60,15 @@ namespace engener
 
         private void SaveUserSet()
         {
-            listOfChoosen.Add(option.SelectedItem.ToString());
+            try
+            {
+                listOfChoosen.Add(option.SelectedItem.ToString());
+            }
+            catch
+            {
+                listOfChoosen.Add("");
+            }
+            
         }
     }
 }
