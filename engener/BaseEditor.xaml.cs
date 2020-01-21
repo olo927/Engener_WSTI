@@ -25,22 +25,26 @@ namespace engener
             this.baseName = baseName;
             Title = baseName;
         }
-
+        public class DataItem
+        {
+            public string warunki { get; set; }
+            public string rezultat { get; set; }
+        }
         private void FillDataGrid(string baseName)
         {
-            
             DataGrid DG = new DataGrid();
-            DG.IsReadOnly = true;
-            DG.Columns.Add(new DataGridCheckBoxColumn());
-            //foreach(string cat in FileAdapter.GetAllCategory(baseName))
-            //{
-            //    DG.Columns.Add(new DataGridTextColumn {Header = cat});
-            //}
-            List<string> rules = FileAdapter.GetAllRule(baseName);
-            //DG.ItemsSource; ;///tu koniec podpięcie danych
-            //for
-            //DG.Columns.Add();
             PlaceForData.Children.Add(DG);
+            
+            DG.IsReadOnly = true;
+            DG.Columns.Add(new DataGridTextColumn());
+            List<string[]> rules = FileAdapter.GetAllRule(baseName);
+            List<DataItem> items = new List<DataItem>();
+            foreach(string[] rule in rules)
+            {
+                items.Add(new DataItem() { warunki = rule[0] , rezultat = rule[1] });
+            }
+            DG.ItemsSource = items;
+            
         }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
@@ -68,6 +72,12 @@ namespace engener
             List<string> temp = new List<string>();
             AddRule addRule = new AddRule(baseName, temp);
             addRule.Show();
+        }
+
+        private void DelRules_Click(object sender, RoutedEventArgs e)
+        {
+            DelRule delRule = new DelRule(baseName);
+            delRule.Show();
         }
     }
 }

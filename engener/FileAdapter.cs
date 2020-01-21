@@ -43,34 +43,36 @@ namespace engener
             return category;
         }
 
-        internal static List<string> GetAllRule(string baseName)
+        internal static List<string[]> GetAllRule(string baseName)
         {
-            List<string> category = GetAllCategory(baseName);
-            List<string> rules = new List<string>();
+            List<string[]> rules = new List<string[]>();
             baseName = "data\\" + baseName + ".bok";
             string[] lines = File.ReadAllLines(baseName);
             foreach (string line in lines)
             {
                 string[] splitedLine = line.Split(";");
-                string oneRule = "";
+                string[] oneRule = new string[2];
                 for (int i = 0; i < splitedLine.Length; i++) 
                 {
                     try
                     {
                         string[] splitedRule = splitedLine[i].Split("_");
-                        if(i == splitedLine.Length - 1)
+                        if(i == splitedLine.Length - 2)
                         {
-                            oneRule.Remove(oneRule.Length-1);
-                            oneRule += " = " + splitedRule[0] + " : " + splitedRule[1];
+                            oneRule[1] += splitedRule[0] + " : " + splitedRule[1];
+                        }
+                        else if(i == 0)
+                        {
+                            oneRule[0] += splitedRule[0] + " : " + splitedRule[1];
                         }
                         else
                         {
-                            oneRule += splitedRule[0] + " : " + splitedRule[1] + " + ";
+                            oneRule[0] +=  " + "+splitedRule[0] + " : " + splitedRule[1];
                         }
                     }
                     catch
                     {
-                        oneRule += "";
+                        oneRule[0] += "";
                     }
                     
                     

@@ -24,14 +24,15 @@ namespace engener
         public List<Admin> admins;
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+
             this.admins = FileAdapter.GetAllAdmins();
             string loginStr = login.Text;
             string passStr = pass.Password;
             bool isLoginCorrect = false;
             string baseName = "";
-            foreach(Admin admin in admins)
+            foreach (Admin admin in admins)
             {
-                if(admin.name == loginStr && admin.pass == passStr)
+                if (admin.name == loginStr && admin.pass == passStr)
                 {
                     //otwórz baze z admin.base
                     isLoginCorrect = true;
@@ -51,5 +52,15 @@ namespace engener
                 MessageBox.Show("wpisałeś błędne hasło lub login", "Błąd logowania");
             }
         }
+       
+
+
+        private void pass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                LoginButton_Click(sender,new RoutedEventArgs());
+            }
+        }
     }
-}
+    }
