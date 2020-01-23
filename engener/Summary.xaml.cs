@@ -48,6 +48,8 @@ namespace engener
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             FileAdapter.SaveNewRule(baseName,rule);
+            BaseEditor baseEditor = new BaseEditor(baseName);
+            baseEditor.Show();
             this.Close();
         }
     }

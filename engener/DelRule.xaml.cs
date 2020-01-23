@@ -18,9 +18,11 @@ namespace engener
     public partial class DelRule : Window
     {
         private List<string> GoodRules;
+        private string baseName;
         public DelRule(string baseName)
         {
             InitializeComponent();
+            this.baseName = baseName;
             List<string[]> Rules = FileAdapter.GetAllRule(baseName);
             GoodRules = new List<string>();
             foreach(string[] rule in Rules)
@@ -37,8 +39,12 @@ namespace engener
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+
             DeleteRule();
+            BaseEditor baseEditor = new BaseEditor(baseName);
+            baseEditor.Show();
             this.Close();
+
         }
 
         private void DeleteRule()
@@ -48,10 +54,21 @@ namespace engener
             {
                 return;
             }
-
-            int index = IndexOfRule(choosenRule);
-            //użyć fileadapter do znalezienia linijki do usunięcia z pliku reload programu.
+            if(MessageBox.Show("Czy napewno chcesz usunąć tą regułę ?? \n" + RuleComboBox.Text, "Usuwanie", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No, MessageBoxOptions.None) == MessageBoxResult.Yes)
+            {
+                int index = IndexOfRule(choosenRule);
+                if (index != -1)
+                {
+                    FileAdapter.DeletingRule(baseName, index);
+                    //reload reguł
+                }
+                else
+                {
+                    MessageBox.Show("Błąd usuwania", "Error", MessageBoxButton.OK, MessageBoxImage.Hand);
+                }
+            }
         }
+
 
         private int IndexOfRule(string choosenRule)
         {

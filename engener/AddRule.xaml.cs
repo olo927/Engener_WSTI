@@ -17,17 +17,15 @@ namespace engener
     /// </summary>
     public partial class AddRule : Window
     {
-        private int numberOfCategory;
         List<string> listOfChoosen;
         int curentNumber = 0;
         private string baseName;
         List<List<string>> ListOfIngredients;
-        public AddRule(string baseName, List<string> listOfChoosen, int numberOfCategory = 0)
+        public AddRule(string baseName, List<string> listOfChoosen)
         {
             InitializeComponent();
             this.baseName = baseName;
             this.listOfChoosen = listOfChoosen;
-            this.numberOfCategory = numberOfCategory;
             ListOfIngredients = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
             SetCategoryInWindow();
         }

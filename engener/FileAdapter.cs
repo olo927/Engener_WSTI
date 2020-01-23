@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System.Windows;
 
 namespace engener
 {
@@ -74,14 +75,20 @@ namespace engener
                     {
                         oneRule[0] += "";
                     }
-                    
-                    
                 }
                 
                 rules.Add(oneRule);
             }
 
             return rules;
+        }
+
+        internal static void DeletingRule(string baseName, int index)
+        {
+            baseName = "data\\" + baseName + ".bok";
+            List<string> lines = File.ReadAllLines(baseName).ToList();
+            lines.RemoveAt(index);
+            File.WriteAllLines(baseName, lines);
         }
 
         internal static void SaveNewIngredient(string baseName, string cat, string ingr)
@@ -96,6 +103,40 @@ namespace engener
                 }
             }
             File.WriteAllLines(baseName,lines);
+        }
+
+        internal static bool DeletingBase(string baseName)
+        {
+            try
+            {
+                File.Delete("data\\" + baseName + ".boi");
+                File.Delete("data\\" + baseName + ".bok");
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR");
+                return false;
+            }
+            List<string> lines = File.ReadAllLines("data\\admin.ame").ToList();
+            int index = -1;
+            for(int i = 0; i< lines.Count; i++)
+            {
+                if (lines[i].Split(';')[2] == baseName)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            if (index != -1) 
+            {
+                lines.RemoveAt(index);
+                File.WriteAllLines("data\\admin.ame", lines);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         internal static void AddNewCategoryToFile(string baseName,string category)

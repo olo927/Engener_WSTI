@@ -34,7 +34,10 @@ namespace engener
         {
             DataGrid DG = new DataGrid();
             PlaceForData.Children.Add(DG);
+            //////////////////////////////////////////
             
+
+            ///////////////////////////////////////////
             DG.IsReadOnly = true;
             DG.Columns.Add(new DataGridTextColumn());
             List<string[]> rules = FileAdapter.GetAllRule(baseName);
@@ -72,12 +75,36 @@ namespace engener
             List<string> temp = new List<string>();
             AddRule addRule = new AddRule(baseName, temp);
             addRule.Show();
+            this.Close();
         }
 
         private void DelRules_Click(object sender, RoutedEventArgs e)
         {
             DelRule delRule = new DelRule(baseName);
             delRule.Show();
+            this.Close();
+
+        }
+
+        private void DelBase_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Czy napewno chcesz usunąć całą baze? \n operacja jest nie odwracalna, wszystkie pliki zostaną usunięte a konto administratora zniknie";
+            if (MessageBox.Show(message, "Usuwanie", MessageBoxButton.YesNo, MessageBoxImage.Stop, MessageBoxResult.No) == MessageBoxResult.Yes)
+            {
+                if(MessageBox.Show("Ale na pewno?", "Usuwanie", MessageBoxButton.YesNo, MessageBoxImage.Stop, MessageBoxResult.No) == MessageBoxResult.Yes)
+                {
+                    if (FileAdapter.DeletingBase(baseName))
+                    {
+                        MessageBox.Show("Udało się", "Usunięto", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went not yes", "Usunięto", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    new MainWindow().Show();
+                    this.Close();
+                }
+            }
         }
     }
 }

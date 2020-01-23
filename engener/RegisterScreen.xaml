@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="Zarejestruj" Height="500" Width="800" Background="Red" MinWidth="510" MinHeight="400" >
+        Title="Zarejestruj" Height="500" Width="700" Background="Red" MinWidth="510" MinHeight="400" MaxWidth="800" MaxHeight="550" >
     <Grid Background="Black" Margin="5px">
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>

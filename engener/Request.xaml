@@ -1,11 +1,11 @@
-﻿<Window x:Class="engener.DelRule"
+﻿<Window x:Class="engener.Request"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="DelRule" Height="450" Width="800" Background="Red" MinWidth="500" MaxWidth="850" MinHeight="300" MaxHeight="500">
+        Title="Request" Height="450" Width="800">
     <Grid Background="Black" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -13,10 +13,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Label Content="Wybierz regułę do usunięcia: " HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="White" FontSize="25" FontWeight="Bold" Margin="15"/>
+            <Label x:Name="Header" Content = "Wybierz bazę wspomagającą" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="White" FontSize="25" FontWeight="Bold" Margin="15"/>
         </Grid>
         <Grid Grid.Row="1">
-            <ComboBox x:Name="RuleComboBox" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="150" Margin="5"/>
+            <ComboBox x:Name="OptionsComboBox" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="150" Margin="5"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
