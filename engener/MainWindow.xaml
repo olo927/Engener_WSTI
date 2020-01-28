@@ -5,27 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="System Wnioskujący" Height="300" Width="300" Background="Red">
+       Title="System Wspomagania Decyzji" Height="300" Width="300" Background="Red" MaxWidth="400" MaxHeight="350" MinWidth="250" MinHeight="250">
     <Grid Background="Black" Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="159*"/>
-            <ColumnDefinition Width="121*"/>
-        </Grid.ColumnDefinitions>
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="Zaloguj do systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row ="0" FontSize="17" Foreground="White" FontWeight="Bold" Grid.ColumnSpan="2" Margin="57,0,0,0"/>
-
-
-
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,66,0,0" Grid.RowSpan="2">
-
-            <Button x:Name="LoginAdminButton" Content=" Zaloguj" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="13" Foreground="Blue" Padding="2"  Click="LoginAdminButton_Click"/>
+        <Grid Grid.Row="0">
+            <Label Content="Zaloguj do systemu" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row ="0" FontSize="17" Foreground="White" FontWeight="Bold" />
         </Grid>
 
-        <Button x:Name="NewUserButton" Content="Zarejestruj nowe konto" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13" Foreground="Blue" Padding="2" Click="NewUserButton_Click" Grid.ColumnSpan="2" Margin="70,132,0,0" Grid.RowSpan="2"/>
+        <Grid Grid.Row="1">
+            <Button x:Name="NewUserButton" Content="Zarejestruj nowe konto" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Click="NewUserButton_Click"  />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button x:Name="LoginAdminButton" Content=" Zaloguj" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="14" FontWeight="Bold"  Click="LoginAdminButton_Click" />
+            </Grid>
+        <Grid Grid.Row="3">
+            <Button x:Name="UseSystemButton" Content="Korzystaj z systemu"  HorizontalAlignment="Center"   VerticalAlignment="Top"  FontSize="14" FontWeight="Bold" Click="UseSystemButton_Click" />
+
+        </Grid>
 
     </Grid>
 </Window>
+
+            
+            
+
+ 

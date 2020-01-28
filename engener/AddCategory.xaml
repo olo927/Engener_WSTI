@@ -21,8 +21,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="AddCategoryButton" Content="Dodaj" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,5,15,10" Click="AddCategoryButton_Click" Grid.Column="0"  Width="70"/>
-            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,5,0,0"  Click="Cancel_Click" Grid.Column="1" Width="70"/>
+            <Button x:Name="AddCategoryButton" Content="Dodaj" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,5,15,10" Click="AddCategoryButton_Click" Grid.Column="0"  Width="70" FontSize="14" FontWeight="Bold"/>
+            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,5,0,0"  Click="Cancel_Click" Grid.Column="1" Width="70" FontSize="14" FontWeight="Bold"/>
         </Grid>
     </Grid>
 </Window>

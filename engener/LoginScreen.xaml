@@ -22,7 +22,18 @@
         <TextBox x:Name="login" HorizontalAlignment="Center"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  Foreground="Blue" FontSize="13"  Grid.Row="2" />
         <Label Content="Podaj swoje hasło:" HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="White"    FontSize="13" Grid.Row="3" />
         <PasswordBox x:Name="pass" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="120"  Foreground="Blue" FontSize="13"  Grid.Row="4" KeyDown="pass_KeyDown"   />
-        <Button x:Name="LoginButton" Content="Zaloguj się" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="Blue" FontSize="14" FontWeight="Bold"  Margin="0,5,10,15" Grid.Row="5" Click="LoginButton_Click" />
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="LoginButton" Content="Zaloguj się" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="14" FontWeight="Bold"  Margin="0,5,10,15" Click="LoginButton_Click" Grid.Column="0" />
+            <Button x:Name="CancelButton" Content="Anuluj"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,5,10,15"  Grid.Column="1" Click="CancelButton_Click"/>
+
+
+
+        </Grid>
+       
     </Grid>
   
 </Window>

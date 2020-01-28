@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="BaseEditor" Height="450" Width="800" >
-    <Grid Background="Red">
+        Title="BaseEditor" Height="450" Width="800" Background="Black">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -21,13 +21,13 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="Baza wiedzy"  Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic" />
-            <Button x:Name="AddRule" Content="Dodaj Regułę" Grid.Row="1" FontSize="14" FontStyle="Italic" Background="{x:Null}" Click="AddRule_Click"/>
-            <Button x:Name="Add" Content="Dodaj Składową" Grid.Row="2" Click="AddIngridence_Click" FontSize="14" Background="{x:Null}" FontStyle="Italic"/>
-            <Button x:Name="AddCat" Content="Dodaj Kategorie" Grid.Row="3"  FontSize="14" Background="{x:Null}" FontStyle="Italic" Click="AddCat_Click"/>
-            <Button x:Name="DelRules" Content="Usuń Regułę" Grid.Row="4" FontSize="14" Background="{x:Null}" FontStyle="Italic" Click="DelRules_Click"/>
-            <Button x:Name="DelBase" Content="Usuń Baze" Grid.Row="5" FontSize="14" Background="{x:Null}" FontStyle="Italic" Click="DelBase_Click"/>
-            <Button x:Name="LogOut" Content="Wyloguj"  Grid.Row="6" Click="LogOut_Click" FontSize="18" FontWeight="Bold" Background="{x:Null}" FontStyle="Italic"/>
+            <Label Content="Baza wiedzy"  Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic" Foreground="White" />
+            <Button x:Name="AddRule" Content="Dodaj Regułę" Grid.Row="1" FontSize="14" FontStyle="Italic" Background="{x:Null}" Click="AddRule_Click"  Foreground="White"/>
+            <Button x:Name="Add" Content="Dodaj Składową" Grid.Row="2" Click="AddIngridence_Click" FontSize="14" Background="{x:Null}" FontStyle="Italic"  Foreground="White"/>
+            <Button x:Name="AddCat" Content="Dodaj Kategorie" Grid.Row="3"  FontSize="14" Background="{x:Null}" FontStyle="Italic" Click="AddCat_Click"  Foreground="White"/>
+            <Button x:Name="DelRules" Content="Usuń Regułę" Grid.Row="4" FontSize="14" Background="{x:Null}" FontStyle="Italic" Click="DelRules_Click"  Foreground="White"/>
+            <Button x:Name="DelBase" Content="Usuń Baze" Grid.Row="5" FontSize="14" Background="{x:Null}" FontStyle="Italic" Click="DelBase_Click"  Foreground="White"/>
+            <Button x:Name="LogOut" Content="Wyloguj"  Grid.Row="6" Click="LogOut_Click" FontSize="18" FontWeight="Bold" Background="{x:Null}" FontStyle="Italic"  Foreground="White"/>
         </Grid>
         <Grid x:Name="PlaceForData" Grid.Column="1"/>
 

@@ -29,6 +29,27 @@ namespace engener
             return admins;
         }
 
+        public static List<string> GetAllBase()
+        {
+            string adminPath = "data\\admin.ame";
+            List<string> bases = new List<string>();
+            if (!Directory.Exists("data"))
+            {
+                Directory.CreateDirectory("data");
+            }
+            if (!File.Exists(adminPath))
+            {
+                File.Create(adminPath);
+            }
+            string[] linesOfAdminFile = File.ReadAllLines(adminPath);
+            foreach (string line in linesOfAdminFile)
+            {
+                bases.Add(new Admin(line).baseName);
+            }
+            return bases;
+        }
+
+
         internal static List<string> GetAllCategory(string baseName)
         {
             List<string> category = new List<string>();

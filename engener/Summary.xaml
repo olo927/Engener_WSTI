@@ -20,8 +20,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Confirm" Content="Zapisz regułę" VerticalAlignment="Top" Click="Confirm_Click" Grid.Column="0" HorizontalAlignment="Right" Margin="0,59,61,0" />
-            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Center"  VerticalAlignment="Top" Click="Cancel_Click" Grid.Column="1" Margin="0,59,61,0" />
+            <Button x:Name="Confirm" Content="Zapisz regułę" VerticalAlignment="Top" Click="Confirm_Click" Grid.Column="0" HorizontalAlignment="Right" Margin="0,59,61,0" FontSize="14" FontWeight="Bold" />
+            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Center"  VerticalAlignment="Top" Click="Cancel_Click" Grid.Column="1" Margin="0,59,61,0" FontSize="14" FontWeight="Bold" />
         </Grid>
 
 

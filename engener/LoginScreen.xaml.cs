@@ -62,5 +62,14 @@ namespace engener
                 LoginButton_Click(sender,new RoutedEventArgs());
             }
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            new MainWindow().Show();
+            this.Close();
+        }
+
+        
     }
     }

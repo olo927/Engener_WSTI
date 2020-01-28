@@ -46,6 +46,10 @@ namespace engener
             this.Close();
         }
 
-  
+        private void UseSystemButton_Click(object sender, RoutedEventArgs e)
+        {
+            new Request().Show();
+            this.Close();
+        }
     }
 }

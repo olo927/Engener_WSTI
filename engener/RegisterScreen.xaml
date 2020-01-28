@@ -88,8 +88,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="RegisterButton" Content="Zarejestruj" HorizontalAlignment="Right"  VerticalAlignment="Center" Click="RegisterButton_Click" Grid.Column="0" Padding="3" />
-            <Button x:Name="CancelButton" Content="Anuluj rejestrację" HorizontalAlignment="Right" VerticalAlignment="Center" Click="CancelButton_Click" Grid.Column="1" Padding="3"  />
+            <Button x:Name="RegisterButton" Content="Zarejestruj" HorizontalAlignment="Right"  VerticalAlignment="Center" Click="RegisterButton_Click" Grid.Column="0" FontSize="14" FontWeight="Bold" />
+            <Button x:Name="CancelButton" Content="Anuluj rejestrację" HorizontalAlignment="Right" VerticalAlignment="Center" Click="CancelButton_Click" Grid.Column="1" FontSize="14" FontWeight="Bold"  />
 
 
         </Grid>
