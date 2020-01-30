@@ -104,6 +104,13 @@ namespace engener
             return rules;
         }
 
+        internal static List<string> GetAllNotEditedRule(string baseName)
+        {
+            baseName = "data\\" + baseName + ".bok";
+            string[] lines = File.ReadAllLines(baseName);
+            return lines.ToList();
+        }
+
         internal static void DeletingRule(string baseName, int index)
         {
             baseName = "data\\" + baseName + ".bok";

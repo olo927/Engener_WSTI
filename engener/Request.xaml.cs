@@ -65,11 +65,10 @@ namespace engener
                 new Request(OptionsComboBox.Text, new List<string>()).Show();
                 
             }
-            else
-            {
-                new Request(baseName, choosen, index + 1).Show(); /// tu się pluje
+            else 
+            { 
+                new Request(baseName, choosen, index + 1).Show(); // zrób iteracyjnie nie zmieniają na nowe okno
             }
-            
             this.Close();
         }
     }

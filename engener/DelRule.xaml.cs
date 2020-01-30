@@ -34,6 +34,7 @@ namespace engener
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            new BaseEditor(baseName).Show();
             this.Close();
         }
 
