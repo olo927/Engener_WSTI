@@ -26,23 +26,18 @@ namespace engener
             isFirst = true;
         }
         List<string> choosen;
+        List<List<string>> indegrades;
         string baseName;
         int index = 0;
-        public Request(string baseName,List<string> choosen, int index = 0)
+        public Request(string baseName,List<string> choosen)
         {
             InitializeComponent();
-            List<List<string>> indegrades = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
-            if(index == indegrades.Count - 3)
-            {
-                new Sumup(baseName, choosen).Show();
-                this.Close();
-            }
+            this.indegrades = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
             Header.Content = indegrades[index][0];
             indegrades[index].RemoveAt(0);
             OptionsComboBox.ItemsSource = indegrades[index];
             isFirst = false;
             this.choosen = choosen;
-            this.index = index;
             this.baseName = baseName;
         }
 
@@ -63,13 +58,25 @@ namespace engener
             if (isFirst)
             {
                 new Request(OptionsComboBox.Text, new List<string>()).Show();
-                
+                this.Close();
             }
             else 
-            { 
-                new Request(baseName, choosen, index + 1).Show(); // zrób iteracyjnie nie zmieniają na nowe okno
+            {
+                choosen.Add(OptionsComboBox.Text);
+                this.Visibility = Visibility.Hidden;
+                index++;
+                Header.Content = indegrades[index][0];
+                indegrades[index].RemoveAt(0);
+                OptionsComboBox.ItemsSource = indegrades[index];
+                
+                this.Visibility = Visibility.Visible;
+                ////
+                if (index == indegrades.Count - 1)
+                {
+                    new Sumup(baseName, choosen).Show();
+                    this.Close();
+                }
             }
-            this.Close();
         }
     }
 }

@@ -191,6 +191,19 @@ namespace engener
             return result;
         }
 
+        public static List<string> GetHeders(string fileName)
+        {
+            List<string> result = new List<string>();
+            List<List<string>> every = GetIngredients(fileName);
+            foreach(List<string> l in every)
+            {
+                result.Add(l[0]);
+            }
+
+            return result;
+        }
+
+
         internal static void SaveNewRule(string baseName, string rule)
         {
             baseName = "data\\" + baseName + ".bok";
