@@ -73,9 +73,17 @@ namespace engener
         private void AddRule_Click(object sender, RoutedEventArgs e)
         {
             List<string> temp = new List<string>();
-            AddRule addRule = new AddRule(baseName, temp);
-            addRule.Show();
-            this.Close();
+            try
+            {
+                AddRule addRule = new AddRule(baseName, temp);
+                addRule.Show();
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Nie masz zapisanych żadnych kategorii", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
 
         private void DelRules_Click(object sender, RoutedEventArgs e)

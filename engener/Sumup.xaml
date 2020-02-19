@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="Sumup"  Height="500" Width="600" Background="Red" MinWidth="410" MinHeight="400" MaxWidth="700" MaxHeight="550">
+        Title="Podsumowanie"  Height="500" Width="600" Background="Red" MinWidth="410" MinHeight="400" MaxWidth="700" MaxHeight="550">
     <Grid Background="Black" Margin="5px">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label Content="Podsumowanie"  HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="White"/>
-            <Label x:Name="Choosen" Content="Label" HorizontalAlignment="Left" Margin="267,107,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label x:Name="Choosen" Content="Label" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Foreground="White"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

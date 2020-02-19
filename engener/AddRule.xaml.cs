@@ -32,11 +32,20 @@ namespace engener
 
         private void SetCategoryInWindow()
         {
-            category.Content = ListOfIngredients[curentNumber][0];
-            string[] options = new string[ListOfIngredients.Count];// = ListOfIngredients[curentNumber];
-            ListOfIngredients[curentNumber].CopyTo(options);
-            options[0] = "";
-            option.ItemsSource = options;
+            try
+            {
+                category.Content = ListOfIngredients[curentNumber][0];
+                string[] options = new string[ListOfIngredients.Count];// = ListOfIngredients[curentNumber];
+                ListOfIngredients[curentNumber].CopyTo(options);
+                options[0] = "";
+                option.ItemsSource = options;
+            }
+            catch
+            {
+                this.Close();
+                return;
+            }
+            
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)

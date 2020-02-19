@@ -69,7 +69,16 @@ namespace engener
         {
             List<string[]> rules = new List<string[]>();
             baseName = "data\\" + baseName + ".bok";
-            string[] lines = File.ReadAllLines(baseName);
+            string[] lines = new string[0];
+            try
+            {
+                lines = File.ReadAllLines(baseName);
+            }
+            catch
+            {
+                Console.Error.WriteLine("Pusty plik");
+            }
+            
             foreach (string line in lines)
             {
                 string[] splitedLine = line.Split(";");

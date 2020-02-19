@@ -36,7 +36,7 @@ namespace engener
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            Admin newAdmin = new Admin(LoginTextBox.Text, PasswordBox.Password, PasswordHintTextBox.Text, BaseNameTextBox.Text, BaseDescriptionTextBox.Text);
+            Admin newAdmin = new Admin(LoginTextBox.Text, PasswordBox.Password,  BaseNameTextBox.Text,PasswordHintTextBox.Text, BaseDescriptionTextBox.Text);
 
             if (!File.Exists("data\\" + newAdmin.baseName + ".bok"))
             {
