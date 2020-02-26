@@ -189,7 +189,10 @@ namespace engener
         public static List<List<string>> GetIngredients(string fileName)
         {
             List<List<string>> result = new List<List<string>>();
-            string[] lines = File.ReadAllLines(fileName);
+
+            string[] lines;
+           
+            lines = File.ReadAllLines(fileName);
 
             foreach(string line in lines)
             {
@@ -203,7 +206,15 @@ namespace engener
         public static List<string> GetHeders(string fileName)
         {
             List<string> result = new List<string>();
-            List<List<string>> every = GetIngredients(fileName);
+            List<List<string>> every;
+            try
+            {
+                every = GetIngredients(fileName);
+            }
+            catch
+            {
+                return null;
+            }
             foreach(List<string> l in every)
             {
                 result.Add(l[0]);

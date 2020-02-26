@@ -16,7 +16,7 @@ namespace engener
         protected string GetRuleResult(string rule)
         {
             string[] splitedRule = rule.Split(";");
-            return splitedRule[splitedRule.Length - 1].Split("_")[1];
+            return splitedRule[splitedRule.Length - 2].Split("_")[1];
         }
 
 

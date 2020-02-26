@@ -21,14 +21,19 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
+            
+            
+            <Label Content="Klasyfikator Listowy" Foreground="White" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"/>
+            <Label Content="Klasyfikator Głosowania" Foreground="White" Grid.Column="1" HorizontalAlignment="Center" Margin="0,64,0,0" VerticalAlignment="Top" />
+            
             <Label x:Name="ListClassfyLabel" Content="Label1" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="White" Grid.Column="0" FontSize="13"/>
             <Label x:Name="VoteClassfyLabel" Content="Label2" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="White" Grid.Column="1" FontSize="13"/>
+            
         </Grid>
         <Grid Grid.Row="2">
             <Button Content="OK" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="Button_Click" FontSize="14" FontWeight="Bold" Width="100"/>
         </Grid>
-        
+
 
     </Grid>
 </Window>

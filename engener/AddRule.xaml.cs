@@ -26,7 +26,15 @@ namespace engener
             InitializeComponent();
             this.baseName = baseName;
             this.listOfChoosen = listOfChoosen;
-            ListOfIngredients = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
+            try
+            {
+                ListOfIngredients = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
+            }
+            catch
+            {
+                return;
+            }
+            
             SetCategoryInWindow();
         }
 
@@ -35,7 +43,7 @@ namespace engener
             try
             {
                 category.Content = ListOfIngredients[curentNumber][0];
-                string[] options = new string[ListOfIngredients.Count];// = ListOfIngredients[curentNumber];
+                string[] options = new string[ListOfIngredients[curentNumber].Count];// = ListOfIngredients[curentNumber];
                 ListOfIngredients[curentNumber].CopyTo(options);
                 options[0] = "";
                 option.ItemsSource = options;
@@ -60,9 +68,17 @@ namespace engener
                 this.Close();
                 return;
             }
-            this.Hide();
+            //this.Hide();
             SetCategoryInWindow();
-            this.Show();
+            //try
+            //{
+            //    this.Show();
+            //}
+            //catch
+            //{
+            //    return;
+            //}
+            
         }
 
         private void SaveUserSet()

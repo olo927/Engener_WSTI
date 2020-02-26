@@ -22,11 +22,19 @@ namespace engener
             InitializeComponent();
             string sum = "";
             List<string> header = FileAdapter.GetHeders("data\\" + baseName + ".boi");
-            for(int i = 0; i<choosen.Count;i++)
+            for (int i = 0; i < choosen.Count; i++)
             {
-                sum += header[i] +" : "+choosen[i] + "\n";
+                sum += header[i] + " : " + choosen[i] + "\n";
             }
             Choosen.Content = sum;
+            SetVoteResult(baseName, choosen);
+
+        }
+
+        private void SetVoteResult(string baseName, List<string> choosen)
+        {
+            VoteClassfy vote = new VoteClassfy(choosen);
+            VoteClassfyLabel.Content = vote.Vote(baseName);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
