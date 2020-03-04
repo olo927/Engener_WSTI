@@ -34,11 +34,9 @@ namespace engener
         {
             DataGrid DG = new DataGrid();
             PlaceForData.Children.Add(DG);
-            //////////////////////////////////////////
-            
-
-            ///////////////////////////////////////////
+            DG.Background = Brushes.Black;
             DG.IsReadOnly = true;
+            DG.RowBackground = Brushes.Gray;
             DG.Columns.Add(new DataGridTextColumn());
             List<string[]> rules = FileAdapter.GetAllRule(baseName);
             List<DataItem> items = new List<DataItem>();

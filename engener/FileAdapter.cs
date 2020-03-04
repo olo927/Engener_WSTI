@@ -98,7 +98,7 @@ namespace engener
                         }
                         else
                         {
-                            oneRule[0] +=  " + "+splitedRule[0] + " : " + splitedRule[1];
+                            oneRule[0] +=  "\n"+splitedRule[0] + " : " + splitedRule[1];
                         }
                     }
                     catch

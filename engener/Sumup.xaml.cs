@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,8 +28,25 @@ namespace engener
                 sum += header[i] + " : " + choosen[i] + "\n";
             }
             Choosen.Content = sum;
-            SetVoteResult(baseName, choosen);
 
+            Stopwatch stopwatchVote = new Stopwatch();
+            stopwatchVote.Start();
+            SetVoteResult(baseName, choosen);
+            stopwatchVote.Stop();
+            Stopwatch stopwatchList = new Stopwatch();
+            stopwatchList.Start();
+            SetListResult(baseName, choosen);
+            stopwatchList.Stop();
+            long timeVote = stopwatchVote.ElapsedTicks;
+            long timeList = stopwatchList.ElapsedTicks;
+            string message = "Czas działania vote : " + timeVote + "\nCzas działania List: " + timeList + "\nCzas jest podany w taktach procesora";
+            MessageBox.Show(message, "Czas Działania");
+        }
+
+        private void SetListResult(string baseName, List<string> choosen)
+        {
+            ListClassfy list = new ListClassfy(choosen, baseName);
+            ListClassfyLabel.Content = list.Classify();
         }
 
         private void SetVoteResult(string baseName, List<string> choosen)
