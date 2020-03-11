@@ -31,9 +31,7 @@ namespace engener
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            string ingr = Ingedence.Text;
-            string cat = Category.Text;
-            FileAdapter.SaveNewIngredient(baseName, cat, ingr);
+            FileAdapter.SaveNewIngredient(baseName, Category.Text, Ingedence.Text, Description.Text);
             this.Close();
         }
 

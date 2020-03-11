@@ -58,7 +58,7 @@ namespace engener
 
             foreach(string line in lines)
             {
-                string[] splitedLine = line.Split(";");
+                string[] splitedLine = line.Split(":");
                 category.Add(splitedLine[0]);
             }
 
@@ -113,6 +113,21 @@ namespace engener
             return rules;
         }
 
+        internal static string GetDescripionToCategory(string category)
+        {
+            string[] lines = File.ReadAllLines("data//admin.ame");
+
+            foreach (string line in lines)
+            {
+                string[] splitedLine = line.Split(";");
+                if(splitedLine[2] == category)
+                {
+                    return splitedLine[3];
+                }                
+            }
+            return "Brak Opisu";
+        }
+
         internal static List<string> GetAllNotEditedRule(string baseName)
         {
             baseName = "data\\" + baseName + ".bok";
@@ -128,15 +143,15 @@ namespace engener
             File.WriteAllLines(baseName, lines);
         }
 
-        internal static void SaveNewIngredient(string baseName, string cat, string ingr)
+        internal static void SaveNewIngredient(string baseName, string cat, string ingr, string description)
         {
             baseName = "data\\" + baseName + ".boi";
             string[] lines = File.ReadAllLines(baseName);
             for(int i = 0; i<lines.Length;i++)
             {
-                if (lines[i].Split(";")[0] == cat)
+                if (lines[i].Split(":")[0] == cat)
                 {
-                    lines[i] += ingr + ";";
+                    lines[i] += ingr + ":" + description + ";" ;
                 }
             }
             File.WriteAllLines(baseName,lines);
@@ -176,14 +191,13 @@ namespace engener
 
         }
 
-        internal static void AddNewCategoryToFile(string baseName,string category)
+        internal static void AddNewCategoryToFile(string baseName,string category, string description)
         {
             baseName = "data\\" + baseName + ".boi";
             string[] lines = File.ReadAllLines(baseName);
             List<string> LinesList = lines.ToList();
-            LinesList.Add(category + ";");
+            LinesList.Add(category + ":" + description + ";");
             File.WriteAllLines(baseName, LinesList);
-
         }
 
         public static List<List<string>> GetIngredients(string fileName)
@@ -197,7 +211,12 @@ namespace engener
             foreach(string line in lines)
             {
                 List<string> lineList = line.Split(";").ToList();
-                result.Add(lineList);
+                List<string> ingredenceList = new List<string>();
+                foreach(string pair in lineList)
+                {
+                    ingredenceList.Add(pair.Split(":")[0]);
+                }
+                result.Add(ingredenceList);
             }
 
             return result;
@@ -231,6 +250,5 @@ namespace engener
             lines.Add(rule);
             File.WriteAllLines(baseName, lines);
         }
-        //dla bazy wiedzy tutaj odczyty i zapisy
     }
 }

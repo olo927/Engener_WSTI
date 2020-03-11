@@ -26,7 +26,7 @@ namespace engener
 
         private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            FileAdapter.AddNewCategoryToFile(baseName,CategoryTextBox.Text);
+            FileAdapter.AddNewCategoryToFile(baseName,CategoryTextBox.Text,Description.Text);
             this.Close();
         }
 

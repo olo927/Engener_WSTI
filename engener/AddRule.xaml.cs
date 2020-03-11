@@ -68,16 +68,7 @@ namespace engener
                 this.Close();
                 return;
             }
-            //this.Hide();
             SetCategoryInWindow();
-            //try
-            //{
-            //    this.Show();
-            //}
-            //catch
-            //{
-            //    return;
-            //}
             
         }
 

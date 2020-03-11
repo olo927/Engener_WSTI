@@ -23,6 +23,7 @@ namespace engener
             InitializeComponent();
             List<string> bases = FileAdapter.GetAllBase();
             OptionsComboBox.ItemsSource = bases;
+            Descriptions.Text = "Opis";
             isFirst = true;
         }
         List<string> choosen;
@@ -73,10 +74,17 @@ namespace engener
                 ////
                 if (index == indegrades.Count - 1)
                 {
+                    this.Hide();
                     new Sumup(baseName, choosen).Show();
                     this.Close();
                 }
             }
+        }
+
+        private void OptionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(isFirst)
+                Descriptions.Text = FileAdapter.GetDescripionToCategory(OptionsComboBox.SelectedItem.ToString());
         }
     }
 }

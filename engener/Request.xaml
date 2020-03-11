@@ -16,7 +16,19 @@
             <Label x:Name="Header" Content = "Wybierz bazę wspomagającą" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="White" FontSize="25" FontWeight="Bold" Margin="15"/>
         </Grid>
         <Grid Grid.Row="1">
-            <ComboBox x:Name="OptionsComboBox" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="150" Margin="5"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="OptionsComboBox" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="150" Margin="5" SelectionChanged="OptionsComboBox_SelectionChanged"/>
+                <Label Grid.Column="1" Foreground="White" FontSize="14" Width="290" ScrollViewer.CanContentScroll="True">
+                    <Label.Content>
+                        <AccessText x:Name="Descriptions" TextWrapping="Wrap" Text="Opis"/>
+                    </Label.Content>
+                </Label>
+            </Grid>
+            
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
