@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
 
 namespace engener
 {
@@ -18,6 +20,7 @@ namespace engener
     public partial class AddCategory : Window
     {
         private string baseName;
+        private string filePath;
         public AddCategory(string baseName)
         {
             InitializeComponent();
@@ -26,13 +29,49 @@ namespace engener
 
         private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            FileAdapter.AddNewCategoryToFile(baseName,CategoryTextBox.Text,Description.Text);
+            FileAdapter.AddNewCategoryToFile(baseName,CategoryTextBox.Text,Description.Text/*, CopyPhoto(filePath)*/);
+
             this.Close();
         }
+
+        //private string CopyPhoto(string filePath)
+        //{
+        //    Random rnd = new Random();
+        //    string newName;
+        //    do
+        //    {
+        //        newName = "";
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            newName += (char)('A' + rnd.Next(0, 26));
+        //        }
+        //        newName += ".jpeg";
+        //    } while (File.Exists("\\data\\"+baseName+"\\"));
+        //    string path = "data\\"+baseName+"\\"+newName;
+        //    System.IO.File.Copy(filePath, path, true);
+        //    return newName;
+        //}
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        //private void FindFileButton_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //    OpenFileDialog openFileDialog = new OpenFileDialog();
+
+        //    openFileDialog.InitialDirectory = "c:\\";
+        //    openFileDialog.Filter = "Zdjęcia (*.jpeg)|*.jpeg";
+        //    openFileDialog.FilterIndex = 2;
+        //    openFileDialog.RestoreDirectory = true;
+
+        //    if (openFileDialog.ShowDialog() == true)
+        //    {
+        //        filePath = openFileDialog.FileName;
+        //    }
+
+        //}
     }
 }

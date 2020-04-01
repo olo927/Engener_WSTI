@@ -35,5 +35,8 @@ namespace engener
             string result = name + ";" + pass + ";" + baseName + ";" + description + ";" + hint + ";";
             return result;
         }
+
+        // Szyfrowanie hasła!!!!
+
     }
 }

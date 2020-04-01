@@ -23,7 +23,7 @@ namespace engener
             InitializeComponent();
             List<string> bases = FileAdapter.GetAllBase();
             OptionsComboBox.ItemsSource = bases;
-            Descriptions.Text = "Opis";
+            Descriptions.Text = "Proszę o wybranie bazy z której chcesz skorzystać";
             isFirst = true;
         }
         List<string> choosen;
@@ -33,10 +33,13 @@ namespace engener
         public Request(string baseName,List<string> choosen)
         {
             InitializeComponent();
+           
             this.indegrades = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
             Header.Content = indegrades[index][0];
             indegrades[index].RemoveAt(0);
             OptionsComboBox.ItemsSource = indegrades[index];
+            Descriptions.Text = FileAdapter.GetDescripionToCategory(baseName, index);
+         
             isFirst = false;
             this.choosen = choosen;
             this.baseName = baseName;
@@ -83,8 +86,18 @@ namespace engener
 
         private void OptionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(isFirst)
-                Descriptions.Text = FileAdapter.GetDescripionToCategory(OptionsComboBox.SelectedItem.ToString());
+            if (isFirst)
+                Descriptions.Text = FileAdapter.GetDescripionToBase(OptionsComboBox.SelectedItem.ToString());
+            else
+                try
+                {
+                    Descriptions.Text = FileAdapter.GetDescripionToItem(OptionsComboBox.SelectedItem.ToString(),baseName,index);
+                }
+                catch
+                {
+                    Descriptions.Text = "";
+                }
+                
         }
     }
 }

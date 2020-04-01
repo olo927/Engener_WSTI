@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <!--<RowDefinition/>-->
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -27,7 +28,15 @@
                 <TextBox x:Name="Description" Grid.Row ="1"  HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" Height="50" AcceptsReturn="True" AcceptsTab="True"/>
             </Grid>
         </Grid>
-        <Grid Grid.Row="3">
+        <!--<Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name ="FileNameLabel" Content="Wybierz plik" Foreground="White"  FontSize="13"/>
+            <Button x:Name="FindFileButton" Content="Wybierz plik" Grid.Column="1" Click="FindFileButton_Click"/>
+        </Grid>-->
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

@@ -12,6 +12,7 @@
             <RowDefinition/>
             <RowDefinition Height="1.5*"/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label Content="Podsumowanie"  HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="White"/>
@@ -38,6 +39,13 @@
             
         </Grid>
         <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+        <Grid Grid.Row="4">
             <Button Content="OK" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="Button_Click" FontSize="14" FontWeight="Bold" Width="100"/>
         </Grid>
 

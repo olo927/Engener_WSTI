@@ -4,7 +4,7 @@ using System.Text;
 
 namespace engener
 {
-    abstract class Conclusion
+    abstract class Conclusion  ///klasa po której dziedziczą voteClasyfy i listClasyfy
     {
         protected List<string> evidence;
         public Conclusion(List<string> evidence)
@@ -16,7 +16,7 @@ namespace engener
         protected string GetRuleResult(string rule)
         {
             string[] splitedRule = rule.Split(";");
-            return splitedRule[splitedRule.Length - 2].Split("_")[1];
+            return splitedRule[splitedRule.Length - 2].Split("_")[1]; //splitedRule.Length - 2 "2" bo split(";") tworzy pustą komórkę na koncu
         }
 
 

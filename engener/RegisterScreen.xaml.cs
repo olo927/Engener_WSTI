@@ -79,6 +79,7 @@ namespace engener
         {
             File.Create("data\\" + admin.baseName + ".bok");
             File.Create("data\\" + admin.baseName + ".boi");
+            //System.IO.Directory.CreateDirectory("data\\" + admin.baseName);
         }
 
 

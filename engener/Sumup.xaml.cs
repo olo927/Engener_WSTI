@@ -46,13 +46,23 @@ namespace engener
         private void SetListResult(string baseName, List<string> choosen)
         {
             ListClassfy list = new ListClassfy(choosen, baseName);
-            ListClassfyLabel.Content = list.Classify();
+            string result = list.Classify();
+            result += "\n" + FileAdapter.GetDescripionToItem(result, baseName);
+            ListClassfyLabel.Content = result;
+
         }
 
         private void SetVoteResult(string baseName, List<string> choosen)
         {
             VoteClassfy vote = new VoteClassfy(choosen);
-            VoteClassfyLabel.Content = vote.Vote(baseName);
+            string result = vote.Vote(baseName);
+            try
+            {
+                result +=  FileAdapter.GetDescripionToItem(result.Split("\n")[1], baseName);
+            }
+            catch { }
+           
+            VoteClassfyLabel.Content = result;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

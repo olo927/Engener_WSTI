@@ -60,7 +60,7 @@ namespace engener
         {
             SaveUserSet();
             curentNumber++;
-            if (curentNumber >= ListOfIngredients.Count)
+            if (curentNumber >= ListOfIngredients.Count) // ListOfIngredients.Count - ilość kategorii
             {
                 Summary sum = new Summary(listOfChoosen, ListOfIngredients, baseName);
                 sum.Show();

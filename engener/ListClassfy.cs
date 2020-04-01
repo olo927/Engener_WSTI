@@ -21,7 +21,7 @@ namespace engener
             {
                 if (CheckRule(rule))
                 {
-                    return GetRuleResult(rule).Split(new char[] {'_'})[0];
+                    return GetRuleResult(rule);
                 }
             }
             return "Żadna z reguł nie spełnia założonych przesłanek";

@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media;
 
 namespace engener
 {
@@ -49,6 +50,19 @@ namespace engener
             return bases;
         }
 
+        //internal static string GetCategoryPhoto(string baseName, int index)
+        //{
+        //    string[] lines = File.ReadAllLines("data//" + baseName + ".boi");
+        //    string[] currentLine = lines[index].Split(";");
+        //    return baseName+"\\" + currentLine[0].Split(":")[2];
+        //}
+
+        internal static string GetDescripionToCategory(string baseName, int index)
+        {
+            string[] lines = File.ReadAllLines("data//" + baseName + ".boi");
+            string[] currentLine = lines[index].Split(";");
+            return currentLine[0].Split(":")[1];
+        }
 
         internal static List<string> GetAllCategory(string baseName)
         {
@@ -113,7 +127,34 @@ namespace engener
             return rules;
         }
 
-        internal static string GetDescripionToCategory(string category)
+        internal static string GetDescripionToItem(string searchingItem, string baseName, int iterator = -1)
+        {
+            string[] lines = File.ReadAllLines("data//" + baseName + ".boi");
+            if(iterator == -1)
+            {
+                iterator = lines.Length - 1;
+            }
+            string[] currentLine = lines[iterator].Split(";");
+            foreach (string item in currentLine)
+            {
+                if (searchingItem == item.Split(":")[0])
+                {
+                    try
+                    {
+                        return item.Split(":")[1];
+                    }
+                    catch
+                    {
+                        return currentLine[0].Split(":")[1];
+                    }
+                    
+                }
+            }
+            return currentLine[0].Split(":")[1];
+
+        }
+
+        internal static string GetDescripionToBase(string category)
         {
             string[] lines = File.ReadAllLines("data//admin.ame");
 
@@ -191,12 +232,12 @@ namespace engener
 
         }
 
-        internal static void AddNewCategoryToFile(string baseName,string category, string description)
+        internal static void AddNewCategoryToFile(string baseName,string category, string description/*, string PhotoName*/)
         {
             baseName = "data\\" + baseName + ".boi";
             string[] lines = File.ReadAllLines(baseName);
             List<string> LinesList = lines.ToList();
-            LinesList.Add(category + ":" + description + ";");
+            LinesList.Add(category + ":" + description /*+ ":" + PhotoName*/ + ";");
             File.WriteAllLines(baseName, LinesList);
         }
 
