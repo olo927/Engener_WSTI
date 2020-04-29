@@ -13,8 +13,8 @@ namespace engener
 
         public string Vote(string baseName)
         {
-            List<List<string>> ind = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
-            List<string> diagnose = ind[ind.Count - 1];
+            List<List<string>> ind = FileAdapter.GetIngredients("data\\" + baseName + ".bod");
+            List<string> diagnose = ind[0];
             int[] score = new int[diagnose.Count-1];
 
             int goodRule = 0;
@@ -39,7 +39,7 @@ namespace engener
 
             if (goodRule == 0)
             {
-                message = "nie znana reguła odpowadająca podanym przesłanką";
+                message = "nie znana reguła odpowadająca podanym przesłankom";
             }
             else
             {

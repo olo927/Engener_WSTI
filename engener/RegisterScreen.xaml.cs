@@ -36,7 +36,8 @@ namespace engener
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            Admin newAdmin = new Admin(LoginTextBox.Text, PasswordBox.Password,  BaseNameTextBox.Text,PasswordHintTextBox.Text, BaseDescriptionTextBox.Text);
+            string hashPassword = FileAdapter.ComputeSha256Hash(PasswordBox.Password);
+            Admin newAdmin = new Admin(LoginTextBox.Text, hashPassword,  BaseNameTextBox.Text,PasswordHintTextBox.Text, BaseDescriptionTextBox.Text);
 
             if (!File.Exists("data\\" + newAdmin.baseName + ".bok"))
             {
@@ -74,11 +75,12 @@ namespace engener
             
                        
         }
-
+        
         private void CreateFiles(Admin admin)
         {
             File.Create("data\\" + admin.baseName + ".bok");
             File.Create("data\\" + admin.baseName + ".boi");
+            File.Create("data\\" + admin.baseName + ".bod");
             //System.IO.Directory.CreateDirectory("data\\" + admin.baseName);
         }
 

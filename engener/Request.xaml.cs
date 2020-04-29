@@ -17,11 +17,11 @@ namespace engener
     /// </summary>
     public partial class Request : Window
     {
-        bool isFirst;
+        private bool isFirst;
         public Request()
         {
             InitializeComponent();
-            List<string> bases = FileAdapter.GetAllBase();
+            List<string> bases = FileAdapter.GetAllNamesOfBases();
             OptionsComboBox.ItemsSource = bases;
             Descriptions.Text = "Proszę o wybranie bazy z której chcesz skorzystać";
             isFirst = true;
@@ -69,13 +69,16 @@ namespace engener
                 choosen.Add(OptionsComboBox.Text);
                 this.Visibility = Visibility.Hidden;
                 index++;
-                Header.Content = indegrades[index][0];
-                indegrades[index].RemoveAt(0);
-                OptionsComboBox.ItemsSource = indegrades[index];
-                
+                try
+                {
+                    Header.Content = indegrades[index][0];
+                    indegrades[index].RemoveAt(0);
+                    OptionsComboBox.ItemsSource = indegrades[index];
+                }
+                catch { }
                 this.Visibility = Visibility.Visible;
                 ////
-                if (index == indegrades.Count - 1)
+                if (index == indegrades.Count)
                 {
                     this.Hide();
                     new Sumup(baseName, choosen).Show();

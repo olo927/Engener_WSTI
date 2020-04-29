@@ -20,7 +20,8 @@ namespace engener
         List<string> listOfChoosen;
         int curentNumber = 0;
         private string baseName;
-        List<List<string>> ListOfIngredients;
+        List<List<string>> ListOfIngredients, ListOfDiagnose;
+
         public AddRule(string baseName, List<string> listOfChoosen)
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace engener
             try
             {
                 ListOfIngredients = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
+                ListOfDiagnose = FileAdapter.GetIngredients("data\\" + baseName + ".bod");
             }
             catch
             {
@@ -40,7 +42,7 @@ namespace engener
 
         private void SetCategoryInWindow()
         {
-            try
+            if (curentNumber < ListOfIngredients.Count)
             {
                 category.Content = ListOfIngredients[curentNumber][0];
                 string[] options = new string[ListOfIngredients[curentNumber].Count];// = ListOfIngredients[curentNumber];
@@ -48,10 +50,13 @@ namespace engener
                 options[0] = "";
                 option.ItemsSource = options;
             }
-            catch
+            else
             {
-                this.Close();
-                return;
+                category.Content = ListOfDiagnose[0][0];
+                string[] options = new string[ListOfDiagnose[0].Count];
+                ListOfDiagnose[0].CopyTo(options);
+                options[0] = "";
+                option.ItemsSource = options;
             }
             
         }
@@ -60,8 +65,9 @@ namespace engener
         {
             SaveUserSet();
             curentNumber++;
-            if (curentNumber >= ListOfIngredients.Count) // ListOfIngredients.Count - ilość kategorii
+            if (curentNumber > ListOfIngredients.Count) // ListOfIngredients.Count - ilość kategorii
             {
+                ListOfIngredients.Add(ListOfDiagnose[0]);
                 Summary sum = new Summary(listOfChoosen, ListOfIngredients, baseName);
                 sum.Show();
 

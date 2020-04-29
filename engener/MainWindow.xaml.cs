@@ -40,7 +40,6 @@ namespace engener
 
         private void OpenLoginScreen()
         {
-            //logowanie z pliku sprawdzanie
             LoginScreen loginScreen = new LoginScreen();
             loginScreen.Show();
             this.Close();

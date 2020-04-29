@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
+using System.Windows;
 
 namespace engener
 {
@@ -20,7 +22,10 @@ namespace engener
             this.hint = hint;
             this.description = description;
         }
-         public Admin(string all)
+
+   
+
+        public Admin(string all)
         {
             string[] vs = all.Split(";");
             this.name = vs[0];

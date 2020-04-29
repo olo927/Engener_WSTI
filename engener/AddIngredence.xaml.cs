@@ -24,6 +24,14 @@ namespace engener
             InitializeComponent();
             this.baseName = baseName;
             ListOfCategory = FileAdapter.GetAllCategory(baseName);
+            try
+            {
+                ListOfCategory.Add(FileAdapter.GetDiagnoseName(baseName));
+            }
+            catch
+            {
+
+            }
             Category.ItemsSource = ListOfCategory;
         }
 
@@ -31,7 +39,16 @@ namespace engener
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            FileAdapter.SaveNewIngredient(baseName, Category.Text, Ingedence.Text, Description.Text);
+            string diagnose = ListOfCategory[ListOfCategory.Count - 1];
+            if(Category.Text== diagnose)
+            {
+                FileAdapter.SaveNewDiagnoseIngredient(baseName, Category.Text, Ingedence.Text, Description.Text);
+            }
+            else
+            {
+                FileAdapter.SaveNewIngredient(baseName, Category.Text, Ingedence.Text, Description.Text);
+            }
+            
             this.Close();
         }
 

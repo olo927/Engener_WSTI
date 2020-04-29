@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,14 +29,13 @@ namespace engener
 
             this.admins = FileAdapter.GetAllAdmins();
             string loginStr = login.Text;
-            string passStr = pass.Password;
+            string passStr = FileAdapter.ComputeSha256Hash(pass.Password);
             bool isLoginCorrect = false;
             string baseName = "";
             foreach (Admin admin in admins)
             {
                 if (admin.name == loginStr && admin.pass == passStr)
                 {
-                    //otwórz baze z admin.base
                     isLoginCorrect = true;
                     baseName = admin.baseName;
                     break;
@@ -52,7 +53,6 @@ namespace engener
                 MessageBox.Show("wpisałeś błędne hasło lub login", "Błąd logowania");
             }
         }
-       
 
 
         private void pass_KeyDown(object sender, KeyEventArgs e)
@@ -72,4 +72,4 @@ namespace engener
 
         
     }
-    }
+}

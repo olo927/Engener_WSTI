@@ -29,9 +29,31 @@ namespace engener
 
         private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            FileAdapter.AddNewCategoryToFile(baseName,CategoryTextBox.Text,Description.Text/*, CopyPhoto(filePath)*/);
-
+            if(isDiagnose.IsChecked == true)
+            {
+                AddDianoseCategory();
+            }
+            else
+            {
+                FileAdapter.AddNewCategoryToFile(baseName, CategoryTextBox.Text, Description.Text/*, CopyPhoto(filePath)*/);
+                FileAdapter.UpdateRules(baseName, CategoryTextBox.Text);
+            }
+            BaseEditor baseEditor = new BaseEditor(baseName);
+            baseEditor.Show();
             this.Close();
+        }
+
+        private void AddDianoseCategory()
+        {
+            
+            if(!FileAdapter.isEmpty(baseName))
+            {
+                MessageBox.Show( "Diagnoza już istnieje", "Error");
+            }
+            else
+            {
+                FileAdapter.AddNewDiagnoseFile(baseName, CategoryTextBox.Text, Description.Text);
+            }
         }
 
         //private string CopyPhoto(string filePath)

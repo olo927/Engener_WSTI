@@ -47,7 +47,7 @@ namespace engener
         {
             ListClassfy list = new ListClassfy(choosen, baseName);
             string result = list.Classify();
-            result += "\n" + FileAdapter.GetDescripionToItem(result, baseName);
+            result += "\n" + FileAdapter.GetDescripionToResult(result, baseName);
             ListClassfyLabel.Content = result;
 
         }
@@ -58,7 +58,7 @@ namespace engener
             string result = vote.Vote(baseName);
             try
             {
-                result +=  FileAdapter.GetDescripionToItem(result.Split("\n")[1], baseName);
+                result +=  FileAdapter.GetDescripionToResult(result.Split("\n")[1], baseName);
             }
             catch { }
            

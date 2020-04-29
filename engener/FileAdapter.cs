@@ -5,6 +5,7 @@ using System.Text;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
+using System.Security.Cryptography;
 
 namespace engener
 {
@@ -29,25 +30,125 @@ namespace engener
             }
             return admins;
         }
-
-        public static List<string> GetAllBase()
+        public static string ComputeSha256Hash(string pass)
+        { 
+            using (SHA256 sha = SHA256.Create())
+            {
+                byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(pass));
+  
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+        internal static string GetDiagnoseName(string baseName)
         {
-            string adminPath = "data\\admin.ame";
+            try
+            {
+                baseName = "data\\" + baseName + ".bod";
+                string[] lines = File.ReadAllLines(baseName);
+                return lines[0].Split(":")[0];
+            }
+            catch {
+                return null;
+
+            }
+
+            
+            
+        }
+
+        internal static void UpdateRules(string baseName, string text)///Tu błąd
+        {
+            baseName = "data\\" + baseName + ".bok";
+            List<string> lines = File.ReadAllLines(baseName).ToList();
+            List<string> newLines = new List<string>();
+            for(int i = 0; i < lines.Count; i++)
+            {
+                string[] splitedLine = lines[i].Split(";");
+                string newLine = "";
+                for(int j = 0; j<splitedLine.Length-1; j++)
+                {
+                    if (j == splitedLine.Length - 2)
+                    {
+                        newLine += text + "_;";
+                    }
+                    newLine += splitedLine[j]+";";
+                }
+                newLines.Add(newLine);
+
+            }
+            File.WriteAllLines(baseName, newLines);
+        }
+
+        internal static bool isEmpty(string baseName)
+        {
+            baseName = "data\\" + baseName + ".bod";
+            string tekst = File.ReadAllText(baseName);
+            if (tekst == "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        internal static string GetDescripionToResult(string searchingItem, string baseName)
+        {
+            string[] lines = File.ReadAllLines("data//" + baseName + ".bod");
+            
+            string[] currentLine = lines[0].Split(";");
+            foreach (string item in currentLine)
+            {
+                if (searchingItem == item.Split(":")[0])
+                {
+                    try
+                    {
+                        return item.Split(":")[1];
+                    }
+                    catch
+                    {
+                        return currentLine[0].Split(":")[1];
+                    }
+
+                }
+            }
+            return currentLine[0].Split(":")[1];
+
+        }
+
+        internal static void SaveNewDiagnoseIngredient(string baseName, string cat, string ingr, string description)
+        {
+            baseName = "data\\" + baseName + ".bod";
+            string[] lines = File.ReadAllLines(baseName);
+            if (lines[0].Split(":")[0] == cat)
+            {
+                lines[0] += ingr + ":" + description + ";";
+            }
+            File.WriteAllLines(baseName, lines);
+        }
+
+        public static List<string> GetAllNamesOfBases()
+        {
+            List<Admin> Admins = GetAllAdmins();
             List<string> bases = new List<string>();
-            if (!Directory.Exists("data"))
+            foreach (Admin admin in Admins)
             {
-                Directory.CreateDirectory("data");
-            }
-            if (!File.Exists(adminPath))
-            {
-                File.Create(adminPath);
-            }
-            string[] linesOfAdminFile = File.ReadAllLines(adminPath);
-            foreach (string line in linesOfAdminFile)
-            {
-                bases.Add(new Admin(line).baseName);
+                bases.Add(admin.baseName);
             }
             return bases;
+        }
+
+        internal static void AddNewDiagnoseFile(string baseName, string category, string description)
+        {
+            baseName = "data\\" + baseName + ".bod";
+            string tekst = category + ":" + description /*+ ":" + PhotoName*/ + ";";
+            File.WriteAllText(baseName, tekst);
         }
 
         //internal static string GetCategoryPhoto(string baseName, int index)
@@ -79,7 +180,7 @@ namespace engener
             return category;
         }
 
-        internal static List<string[]> GetAllRule(string baseName)
+        internal static List<string[]> GetAllRuleForDisplay(string baseName)
         {
             List<string[]> rules = new List<string[]>();
             baseName = "data\\" + baseName + ".bok";
@@ -193,6 +294,7 @@ namespace engener
                 if (lines[i].Split(":")[0] == cat)
                 {
                     lines[i] += ingr + ":" + description + ";" ;
+                    break;
                 }
             }
             File.WriteAllLines(baseName,lines);
@@ -204,7 +306,9 @@ namespace engener
             {
                 File.Delete("data\\" + baseName + ".boi");
                 File.Delete("data\\" + baseName + ".bok");
-            }catch(Exception e)
+                File.Delete("data\\" + baseName + ".bod");
+            }
+            catch(Exception e)
             {
                 MessageBox.Show(e.Message, "ERROR");
                 return false;
@@ -275,9 +379,9 @@ namespace engener
             {
                 return null;
             }
-            foreach(List<string> l in every)
+            foreach(List<string> temp in every)
             {
-                result.Add(l[0]);
+                result.Add(temp[0]);
             }
 
             return result;

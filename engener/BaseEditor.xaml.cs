@@ -42,7 +42,7 @@ namespace engener
             DG.RowBackground = Brushes.Gray;
             ///
             DG.Columns.Add(new DataGridTextColumn());
-            List<string[]> rules = FileAdapter.GetAllRule(baseName);
+            List<string[]> rules = FileAdapter.GetAllRuleForDisplay(baseName);
             List<DataItem> items = new List<DataItem>();
             foreach(string[] rule in rules)
             {
@@ -61,8 +61,14 @@ namespace engener
 
         private void AddIngridence_Click(object sender, RoutedEventArgs e)
         {
-            AddIngredence addIngridence = new AddIngredence(baseName);
-            addIngridence.Show();
+            try
+            {
+                AddIngredence addIngridence = new AddIngredence(baseName);
+                addIngridence.Show();
+            }
+            catch { }
+
+            
             
         }
 
@@ -70,6 +76,7 @@ namespace engener
         {
             AddCategory addCategory = new AddCategory(baseName);
             addCategory.Show();
+            this.Close();
         }
 
         private void AddRule_Click(object sender, RoutedEventArgs e)

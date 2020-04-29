@@ -23,7 +23,7 @@ namespace engener
         {
             InitializeComponent();
             this.baseName = baseName;
-            List<string[]> Rules = FileAdapter.GetAllRule(baseName);
+            List<string[]> Rules = FileAdapter.GetAllRuleForDisplay(baseName);
             GoodRules = new List<string>();
             foreach(string[] rule in Rules)
             {
@@ -61,7 +61,7 @@ namespace engener
                 if (index != -1)
                 {
                     FileAdapter.DeletingRule(baseName, index);
-                    //reload reguł
+
                 }
                 else
                 {

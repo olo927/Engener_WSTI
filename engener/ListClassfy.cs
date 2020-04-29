@@ -49,7 +49,7 @@ namespace engener
                 {
                     int retval = x.Length.CompareTo(y.Length);
                     if (retval != 0)
-                        return -retval;
+                        return -retval; //odwrocona wartosc przez compareto
                     else
                         return x.CompareTo(y);
                 }

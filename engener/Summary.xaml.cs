@@ -54,6 +54,3 @@ namespace engener
         }
     }
 }
-//dodawanie do bazy reguł
-// wybór kategori wynikowej
-//usuwanie
