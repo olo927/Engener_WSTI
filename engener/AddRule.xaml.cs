@@ -44,7 +44,7 @@ namespace engener
         {
             if (curentNumber < ListOfIngredients.Count)
             {
-                category.Content = ListOfIngredients[curentNumber][0];
+                category.Text = ListOfIngredients[curentNumber][0];
                 string[] options = new string[ListOfIngredients[curentNumber].Count];// = ListOfIngredients[curentNumber];
                 ListOfIngredients[curentNumber].CopyTo(options);
                 options[0] = "";
@@ -52,7 +52,7 @@ namespace engener
             }
             else
             {
-                category.Content = ListOfDiagnose[0][0];
+                category.Text = ListOfDiagnose[0][0];
                 string[] options = new string[ListOfDiagnose[0].Count];
                 ListOfDiagnose[0].CopyTo(options);
                 options[0] = "";
@@ -65,7 +65,7 @@ namespace engener
         {
             SaveUserSet();
             curentNumber++;
-            if (curentNumber > ListOfIngredients.Count) // ListOfIngredients.Count - ilość kategorii
+            if (curentNumber > ListOfIngredients.Count) 
             {
                 ListOfIngredients.Add(ListOfDiagnose[0]);
                 Summary sum = new Summary(listOfChoosen, ListOfIngredients, baseName);

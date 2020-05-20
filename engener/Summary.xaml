@@ -6,23 +6,23 @@
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
         Title="Summary" Height="350" Width="400" Background="Red" MinWidth="500" MinHeight="100">
-    <Grid Background="Black" Margin="5px">
+    <Grid  Background="Black" Margin="5px">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0"/>
-
-        <Label x:Name="Info" Content="Podsumowanie" HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Foreground="White" FontSize="25" FontWeight="Bold" />
+        <Grid x:Name="FullGrid" Grid.Row="0"/>
+        <TextBox x:Name="Info" Text="Podsumowanie" HorizontalAlignment="Center" Margin="15" VerticalAlignment="Top" Background="Black" Foreground="White" FontSize="25" FontWeight="Bold" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" TextWrapping="NoWrap" IsReadOnly="True" IsUndoEnabled="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MaxWidth="2000" MaxHeight="2000" />
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Confirm" Content="Zapisz regułę" VerticalAlignment="Top" Click="Confirm_Click" Grid.Column="0" HorizontalAlignment="Right" Margin="0,59,61,0" FontSize="14" FontWeight="Bold" />
-            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Center"  VerticalAlignment="Top" Click="Cancel_Click" Grid.Column="1" Margin="0,59,61,0" FontSize="14" FontWeight="Bold" />
+            <Button x:Name="Confirm" Content="Zapisz regułę" VerticalAlignment="Top" Click="Confirm_Click" Grid.Column="0" HorizontalAlignment="Center"  FontSize="14" FontWeight="Bold" />
+            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Center"  VerticalAlignment="Top" Click="Cancel_Click" Grid.Column="1"  FontSize="14" FontWeight="Bold" />
         </Grid>
+       
 
 
     </Grid>

@@ -27,7 +27,7 @@ namespace engener
             {
                 sum += header[i] + " : " + choosen[i] + "\n";
             }
-            Choosen.Content = sum;
+            Choosen.Text = sum;
 
             Stopwatch stopwatchVote = new Stopwatch();
             stopwatchVote.Start();
@@ -48,7 +48,7 @@ namespace engener
             ListClassfy list = new ListClassfy(choosen, baseName);
             string result = list.Classify();
             result += "\n" + FileAdapter.GetDescripionToResult(result, baseName);
-            ListClassfyLabel.Content = result;
+            ListClassfyLabel.Text = result;
 
         }
 
@@ -62,7 +62,7 @@ namespace engener
             }
             catch { }
            
-            VoteClassfyLabel.Content = result;
+            VoteClassfyLabel.Text = result;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

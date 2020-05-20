@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-       Title="System Wspomagania Decyzji" Height="300" Width="300" Background="Red" MaxWidth="400" MaxHeight="350" MinWidth="250" MinHeight="250">
+       Title="System Wspomagania Diagnozy" Height="300" Width="300" Background="Red" MaxWidth="400" MaxHeight="350" MinWidth="250" MinHeight="250">
     <Grid Background="Black" Margin="10">
        
         <Grid.RowDefinitions>

@@ -25,7 +25,7 @@ namespace engener
             string[] tabOfRule = rule.Split(";");
             for(int i =0; i<evidence.Count; i++)
             {
-                if (evidence[i] == "")
+                if (evidence[i] == "" || tabOfRule[i].Split("_")[1] == "")
                     continue;
                 if (evidence[i] != tabOfRule[i].Split("_")[1])
                 {

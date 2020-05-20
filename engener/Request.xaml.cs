@@ -33,7 +33,6 @@ namespace engener
         public Request(string baseName,List<string> choosen)
         {
             InitializeComponent();
-           
             this.indegrades = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
             Header.Content = indegrades[index][0];
             indegrades[index].RemoveAt(0);
@@ -74,6 +73,8 @@ namespace engener
                     Header.Content = indegrades[index][0];
                     indegrades[index].RemoveAt(0);
                     OptionsComboBox.ItemsSource = indegrades[index];
+                    OptionsComboBox.SelectedIndex = indegrades.Count-1;
+                    Descriptions.Text = FileAdapter.GetDescripionToCategory(baseName, index);
                 }
                 catch { }
                 this.Visibility = Visibility.Visible;

@@ -21,6 +21,7 @@ namespace engener
         public Summary(List<string> listOfChoosen, List<List<string>> ListOfIngredients, string baseName)
         {
             rule = "";
+
             this.baseName = baseName;
             InitializeComponent();
             SetLabel(listOfChoosen, ListOfIngredients);
@@ -28,7 +29,7 @@ namespace engener
 
         private void SetLabel(List<string> listOfChoosen, List<List<string>> ListOfIngredients)
         {
-            string info = "";
+            string info = "Podsumowanie\n";
             for(int i = 0; i < listOfChoosen.Count; i++)
             {
                 if(i== listOfChoosen.Count-1)
@@ -37,7 +38,9 @@ namespace engener
                     info += "Kategoria " + ListOfIngredients[i][0] + " : " + listOfChoosen[i] + '\n';
                 rule += ListOfIngredients[i][0] + "_" + listOfChoosen[i] + ";";
             }
-            Info.Content = info;
+            Info.Text = info;
+            
+            
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

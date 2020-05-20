@@ -41,7 +41,7 @@ namespace engener
             return result;
         }
 
-        // Szyfrowanie hasła!!!!
+      
 
     }
 }

@@ -14,7 +14,11 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="category" Grid.Column="0" Foreground="White" Content="Kategoria:" FontSize="16"/>
+            <Label Grid.Column="0" Foreground="White"  FontSize="16">
+                <Label.Content>
+                    <AccessText x:Name="category" TextWrapping="Wrap" Text="Kategoria:"/>
+                </Label.Content>
+            </Label>
             <ComboBox x:Name="option" Grid.Column="1"/>
             
         </Grid>

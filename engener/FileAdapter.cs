@@ -61,7 +61,7 @@ namespace engener
             
         }
 
-        internal static void UpdateRules(string baseName, string text)///Tu błąd
+        internal static void UpdateRules(string baseName, string text)
         {
             baseName = "data\\" + baseName + ".bok";
             List<string> lines = File.ReadAllLines(baseName).ToList();
