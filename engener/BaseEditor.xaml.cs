@@ -76,7 +76,6 @@ namespace engener
         {
             AddCategory addCategory = new AddCategory(baseName);
             addCategory.Show();
-            this.Close();
         }
 
         private void AddRule_Click(object sender, RoutedEventArgs e)
@@ -86,7 +85,6 @@ namespace engener
             {
                 AddRule addRule = new AddRule(baseName, temp);
                 addRule.Show();
-                this.Close();
             }
             catch
             {

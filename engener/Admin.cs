@@ -31,8 +31,8 @@ namespace engener
             this.name = vs[0];
             this.pass = vs[1];
             this.baseName = vs[2];
-            this.hint = vs[3];
-            this.description = vs[4];
+            this.hint = vs[4];
+            this.description = vs[3];
         }
 
         public string ToCodedString()

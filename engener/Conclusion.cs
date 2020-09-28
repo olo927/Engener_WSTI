@@ -4,7 +4,7 @@ using System.Text;
 
 namespace engener
 {
-    abstract class Conclusion  ///klasa po której dziedziczą voteClasyfy i listClasyfy
+    abstract class Conclusion  
     {
         protected List<string> evidence;
         public Conclusion(List<string> evidence)

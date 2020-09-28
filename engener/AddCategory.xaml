@@ -26,7 +26,7 @@
 
                 <Label Content="Podaj objaśnienie :" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,0,0,8" Foreground="White"   FontSize="16" />
                 <TextBox x:Name="Description" Grid.Row ="1"  HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" Height="50" AcceptsReturn="True" AcceptsTab="True"/>
-                <CheckBox x:Name="isDiagnose" Content="Czy jest to klasa problemu?" HorizontalAlignment="Left" Margin="540,5,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" />
+                <CheckBox x:Name="isDecisionClass" Content="Czy jest to klasa decyzyjna?" HorizontalAlignment="Left" Margin="540,5,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" />
             </Grid>
         </Grid>
         <!--<Grid Grid.Row="3">

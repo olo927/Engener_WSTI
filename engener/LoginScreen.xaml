@@ -25,10 +25,12 @@
         <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button x:Name="LoginButton" Content="Zaloguj się" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="14" FontWeight="Bold"  Margin="0,5,10,15" Click="LoginButton_Click" Grid.Column="0" />
-            <Button x:Name="CancelButton" Content="Anuluj"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,5,10,15"  Grid.Column="1" Click="CancelButton_Click"/>
+            <Button x:Name="CancelButton" Content="Anuluj"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,5,10,15"  Grid.Column="2" Click="CancelButton_Click"/>
+            <Button  x:Name="GetHintButton" Content="Uzyskaj podpowiedź do hasła" HorizontalAlignment="Center"  VerticalAlignment="Top" Grid.Column="1" Margin="0,5,10,15" FontSize="14" FontWeight="Bold" Click="GetHintButton_Click"/>
 
 
 

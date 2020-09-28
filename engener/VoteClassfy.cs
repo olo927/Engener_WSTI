@@ -13,7 +13,7 @@ namespace engener
 
         public string Vote(string baseName)
         {
-            List<List<string>> ind = FileAdapter.GetIngredients("data\\" + baseName + ".bod");
+            List<List<string>> ind = FileAdapter.GetIngredients("data\\" + baseName + ".bod"); 
             List<string> diagnose = ind[0];
             int[] score = new int[diagnose.Count-1];
 

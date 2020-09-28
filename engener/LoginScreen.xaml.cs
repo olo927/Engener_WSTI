@@ -22,6 +22,7 @@ namespace engener
         public LoginScreen()
         {
             InitializeComponent();
+            
         }
         public List<Admin> admins;
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -32,6 +33,7 @@ namespace engener
             string passStr = FileAdapter.ComputeSha256Hash(pass.Password);
             bool isLoginCorrect = false;
             string baseName = "";
+
             foreach (Admin admin in admins)
             {
                 if (admin.name == loginStr && admin.pass == passStr)
@@ -70,6 +72,9 @@ namespace engener
             this.Close();
         }
 
-        
+        private void GetHintButton_Click(object sender, RoutedEventArgs e)
+        {
+            new HintScreen().Show();
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace engener
 
         private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            if(isDiagnose.IsChecked == true)
+            if(isDecisionClass.IsChecked == true)
             {
                 AddDianoseCategory();
             }

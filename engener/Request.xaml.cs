@@ -30,7 +30,7 @@ namespace engener
         List<List<string>> indegrades;
         string baseName;
         int index = 0;
-        public Request(string baseName,List<string> choosen)
+        public Request(string baseName, List<string> choosen)
         {
             InitializeComponent();
             this.indegrades = FileAdapter.GetIngredients("data\\" + baseName + ".boi");
@@ -38,7 +38,7 @@ namespace engener
             indegrades[index].RemoveAt(0);
             OptionsComboBox.ItemsSource = indegrades[index];
             Descriptions.Text = FileAdapter.GetDescripionToCategory(baseName, index);
-         
+
             isFirst = false;
             this.choosen = choosen;
             this.baseName = baseName;
@@ -52,7 +52,7 @@ namespace engener
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            if(OptionsComboBox.Text == ""&& isFirst)
+            if (OptionsComboBox.Text == "" && isFirst)
             {
                 MessageBox.Show("Nie wybrałeś bazy");
                 return;
@@ -63,7 +63,7 @@ namespace engener
                 new Request(OptionsComboBox.Text, new List<string>()).Show();
                 this.Close();
             }
-            else 
+            else
             {
                 choosen.Add(OptionsComboBox.Text);
                 this.Visibility = Visibility.Hidden;
@@ -73,7 +73,7 @@ namespace engener
                     Header.Content = indegrades[index][0];
                     indegrades[index].RemoveAt(0);
                     OptionsComboBox.ItemsSource = indegrades[index];
-                    OptionsComboBox.SelectedIndex = indegrades.Count-1;
+                    OptionsComboBox.SelectedIndex = indegrades.Count - 1;
                     Descriptions.Text = FileAdapter.GetDescripionToCategory(baseName, index);
                 }
                 catch { }
@@ -90,18 +90,19 @@ namespace engener
 
         private void OptionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (isFirst)
-                Descriptions.Text = FileAdapter.GetDescripionToBase(OptionsComboBox.SelectedItem.ToString());
-            else
-                try
-                {
-                    Descriptions.Text = FileAdapter.GetDescripionToItem(OptionsComboBox.SelectedItem.ToString(),baseName,index);
-                }
-                catch
-                {
-                    Descriptions.Text = "";
-                }
-                
+            try
+            {
+                if (isFirst)
+                    Descriptions.Text = FileAdapter.GetDescripionToBase(OptionsComboBox.SelectedItem.ToString());
+                else
+
+                    Descriptions.Text = FileAdapter.GetDescripionToItem(OptionsComboBox.SelectedItem.ToString(), baseName, index);
+            }
+            catch
+            {
+                Descriptions.Text = "";
+            }
+
         }
     }
 }
