@@ -1,0 +1,38 @@
+﻿<Window x:Class="engener.PrintPreparationScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:engener"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+     Title="PRINT" Height="370" Width="600" Background="Red" MinWidth="350" MinHeight="320" MaxWidth="700" MaxHeight="450">
+    <Grid Background="Black" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Content="Wybierz dane do wydruku" HorizontalAlignment="Center" VerticalAlignment="Top"  Foreground="White" FontSize="16" FontWeight="Bold" Grid.Row="0"/>
+
+        <CheckBox Content="Tytul" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" x:Name="Title" Grid.Row="1" Margin="15,0,0,0"/>
+        <CheckBox Content="Fakty uzytkownika" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" x:Name="User_facts" Grid.Row="2" Margin="15,0,0,0"/>
+        <CheckBox Content="Wynik klasyfikacji listowej" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" x:Name="Result_list_classfy" Grid.Row="3" Margin="15,0,0,0"/>
+        <CheckBox Content="Opis wyniku klasyfikacji listowej" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" x:Name="Result_list_classfy_description" Grid.Row="4" Margin="15,0,0,0"/>
+        <CheckBox Content="Wynik klasyfikacji vote" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" x:Name="Result_vote_classfy" Grid.Row="5" Margin="15,0,0,0" />
+        <CheckBox Content="Opis wyniku klasyfikacji vote" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" x:Name="Result_vote_classfy_description" Grid.Row="6" Margin="15,0,0,0"/>
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Zaznacz wszystkie" HorizontalAlignment="Center"  VerticalAlignment="Top" x:Name="Choose_every" Click="Choose_every_Click" Grid.Column="0"/>
+            <Button Content="Drukuj" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="Print" Click="Print_Click" Grid.Column="1"/>
+        </Grid>
+    </Grid>
+</Window>

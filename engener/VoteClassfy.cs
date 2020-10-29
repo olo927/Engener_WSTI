@@ -39,7 +39,7 @@ namespace engener
 
             if (goodRule == 0)
             {
-                message = "nie znana reguła odpowadająca podanym przesłankom";
+                message = "nie znana reguła odpowiadająca podanym przesłankom";
             }
             else
             {

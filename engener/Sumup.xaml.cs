@@ -18,10 +18,12 @@ namespace engener
     /// </summary>
     public partial class Sumup : Window
     {
+        string baseName;
+        string sum = "";
         public Sumup(string baseName, List<string> choosen)
         {
             InitializeComponent();
-            string sum = "";
+            this.baseName = baseName;
             List<string> header = FileAdapter.GetHeders("data\\" + baseName + ".boi");
             for (int i = 0; i < choosen.Count; i++)
             {
@@ -42,12 +44,13 @@ namespace engener
             string message = "Czas działania vote : " + timeVote + "\nCzas działania List: " + timeList + "\nCzas jest podany w taktach procesora";
             MessageBox.Show(message, "Czas Działania");
         }
-
+        string listResult, listDescriptionResult, voteResult, voteDescriptionResult;
         private void SetListResult(string baseName, List<string> choosen)
         {
             ListClassfy list = new ListClassfy(choosen, baseName);
-            string result = list.Classify();
-            result += "\n" + FileAdapter.GetDescripionToResult(result, baseName);
+            listResult = list.Classify();
+            listDescriptionResult = FileAdapter.GetDescripionToResult(listResult, baseName);
+            string result = listResult + "\n" + listDescriptionResult;
             ListClassfyLabel.Text = result;
 
         }
@@ -55,10 +58,12 @@ namespace engener
         private void SetVoteResult(string baseName, List<string> choosen)
         {
             VoteClassfy vote = new VoteClassfy(choosen);
-            string result = vote.Vote(baseName);
+            voteResult = vote.Vote(baseName);
+            string result = voteResult;
             try
             {
-                result +=  FileAdapter.GetDescripionToResult(result.Split("\n")[1], baseName);
+                voteDescriptionResult = FileAdapter.GetDescripionToResult(result.Split("\n")[1], baseName);
+                result += voteDescriptionResult;
             }
             catch { }
            
@@ -69,6 +74,22 @@ namespace engener
         {
             new MainWindow().Show();
             this.Close();
+        }
+
+
+
+        private void Print_Button_Click(object sender, RoutedEventArgs e)
+        {
+            string[] args =
+            {
+                baseName,
+                sum,
+                listResult,
+                listDescriptionResult,
+                voteResult,
+                voteDescriptionResult
+            };
+            new PrintPreparationScreen(args).Show();
         }
     }
 }

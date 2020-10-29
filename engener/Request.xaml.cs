@@ -95,8 +95,15 @@ namespace engener
                 if (isFirst)
                     Descriptions.Text = FileAdapter.GetDescripionToBase(OptionsComboBox.SelectedItem.ToString());
                 else
-
-                    Descriptions.Text = FileAdapter.GetDescripionToItem(OptionsComboBox.SelectedItem.ToString(), baseName, index);
+                    try
+                    {
+                        Descriptions.Text = FileAdapter.GetDescripionToItem(OptionsComboBox.SelectedItem.ToString(), baseName, index);
+                    }
+                    catch
+                    {
+                        Descriptions.Text = FileAdapter.GetDescripionToItem("", baseName, index);
+                    }
+                    
             }
             catch
             {

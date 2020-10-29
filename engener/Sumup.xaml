@@ -52,7 +52,12 @@
 
         </Grid>
         <Grid Grid.Row="4">
-            <Button Content="OK" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="Button_Click" FontSize="14" FontWeight="Bold" Width="100"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="OK" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="Button_Click" FontSize="14" FontWeight="Bold" Width="100" Grid.Column="0"/>
+            <Button Content="Przygotuj wydruk" HorizontalAlignment="Center"  VerticalAlignment="Center" x:Name="Print_Button" Click="Print_Button_Click" Grid.Column="1" FontSize="14" FontWeight="Bold" />
         </Grid>
 
 
