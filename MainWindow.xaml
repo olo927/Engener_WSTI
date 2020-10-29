@@ -1,0 +1,38 @@
+﻿<Window x:Class="engener.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:engener"
+        mc:Ignorable="d"
+       Title="System Wspomagania Diagnozy" Height="300" Width="300" Background="Red" MaxWidth="400" MaxHeight="350" MinWidth="250" MinHeight="250">
+    <Grid Background="Black" Margin="10">
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Label Content="Zaloguj do systemu" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row ="0" FontSize="17" Foreground="White" FontWeight="Bold" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Button x:Name="NewUserButton" Content="Zarejestruj nowe konto" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Click="NewUserButton_Click"  />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button x:Name="LoginAdminButton" Content=" Zaloguj" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="14" FontWeight="Bold"  Click="LoginAdminButton_Click" />
+            </Grid>
+        <Grid Grid.Row="3">
+            <Button x:Name="UseSystemButton" Content="Korzystaj z systemu"  HorizontalAlignment="Center"   VerticalAlignment="Top"  FontSize="14" FontWeight="Bold" Click="UseSystemButton_Click" />
+
+        </Grid>
+
+    </Grid>
+</Window>
+
+            
+            
+
+ 
