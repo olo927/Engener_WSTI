@@ -19,7 +19,6 @@ namespace engener
     /// </summary>
     public partial class RegisterScreen : Window
     {
-
         public List<Admin> admins;
         public RegisterScreen()
         {
@@ -51,7 +50,7 @@ namespace engener
                         break;
                     }
                 }
-                if (isUniqLogin)
+                if (isUniqLogin && PassCheck())
                 {
                     admins.Add(newAdmin);
                     List<string> ListOfAdminsString = new List<string>();
@@ -64,7 +63,11 @@ namespace engener
                     BaseEditor baseEditor = new BaseEditor(newAdmin.baseName);
                     baseEditor.Show();
                     this.Close();
-                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Hasła nie są poprawne");
                 }
             }
             else
@@ -75,7 +78,15 @@ namespace engener
             
                        
         }
-        
+
+        private bool PassCheck()
+        {
+            if ((PasswordBox.Password.Length < 5) && (ConfirmPasswordBox.Password == PasswordBox.Password))
+                return true;
+            else
+                return false;
+        }
+
         private void CreateFiles(Admin admin)
         {
             File.Create("data\\" + admin.baseName + ".bok");
@@ -90,6 +101,18 @@ namespace engener
             if (PasswordBox.Password.Length < 5)
             {
                 PasswordErrorLabel.Content = "Masz za krótkie hasło, min. 5 znaków";
+            }
+            else
+            {
+                PasswordErrorLabel.Content = "";
+            }
+        }
+
+        private void ConfirmPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if(ConfirmPasswordBox.Password != PasswordBox.Password)
+            {
+                PasswordErrorLabel.Content = "Hasła nie są zgodne";
             }
             else
             {

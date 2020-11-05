@@ -35,7 +35,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
             
-            <Label Content="Podaj objaśnienie :" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,0,0,8" Foreground="White"   FontSize="13" />
+            <Label Content="Podaj objaśnienie :" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,0,0,8" Foreground="White"   FontSize="14" />
             <TextBox x:Name="Description" Grid.Row ="1"  HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" Height="50" AcceptsReturn="True" AcceptsTab="True"/>
             </Grid>
         </Grid>
@@ -45,9 +45,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="Add" Content="Dodaj" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0"   Click="Add_Click" Grid.Column="0" Width="100"/>
+            <Button x:Name="Add" Content="Dodaj" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0"   Click="Add_Click" Grid.Column="0" Width="100" FontSize="14" FontWeight="Bold"/>
 
-            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="8,5,0,0"  Grid.Column="1" Width="100" Click="Cancel_Click"  />
+            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="8,5,0,0"  Grid.Column="1" Width="100" Click="Cancel_Click" FontSize="14" FontWeight="Bold"  />
         </Grid>
 
     </Grid>

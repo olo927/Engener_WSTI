@@ -21,8 +21,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="GetHintButton" Content="Uzyskaj" HorizontalAlignment="Center" VerticalAlignment="Center" Click="GetHintButton_Click" Grid.Column="0"/>
-            <Button x:Name="CancelButton" Content="Anuluj" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="CancelButton_Click" Grid.Column="1"/>
+            <Button x:Name="GetHintButton" Content="Uzyskaj" HorizontalAlignment="Center" VerticalAlignment="Center" Click="GetHintButton_Click" Grid.Column="0" FontSize="14" FontWeight="Bold"/>
+            <Button x:Name="CancelButton" Content="Anuluj" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="CancelButton_Click" Grid.Column="1" FontSize="14" FontWeight="Bold"/>
 
         </Grid>
        

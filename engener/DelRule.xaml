@@ -24,8 +24,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="Confirm" Content="Potwierdź" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="Confirm_Click" Grid.Column="0" Padding="3"  Margin="0,5,8,0" Width="100"/>
-            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="Cancel_Click" Grid.Column="1" Padding="3" Margin="5" Width="100" />
+            <Button x:Name="Confirm" Content="Potwierdź" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="Confirm_Click" Grid.Column="0" Padding="3"  Margin="0,5,8,0" Width="100" FontSize="14" FontWeight="Bold"/>
+            <Button x:Name="Cancel" Content="Anuluj" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="Cancel_Click" Grid.Column="1" Padding="3" Margin="5" Width="100" FontSize="14" FontWeight="Bold" />
         </Grid>
 
 

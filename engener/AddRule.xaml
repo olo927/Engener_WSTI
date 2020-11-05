@@ -22,6 +22,6 @@
             <ComboBox x:Name="option" Grid.Column="1"/>
             
         </Grid>
-        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Margin="550,356,0,0" VerticalAlignment="Top" Click="Next_Click" Width="75"/>
+        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Margin="550,356,0,0" VerticalAlignment="Top" Click="Next_Click" Width="75" FontSize="14" FontWeight="Bold"/>
     </Grid>
 </Window>

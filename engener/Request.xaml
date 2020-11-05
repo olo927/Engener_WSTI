@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:engener"
         mc:Ignorable="d"
-        Title="System wspomagania decyzji" Height="500" Width="600" Background="Red" MinWidth="420" MinHeight="400" MaxWidth="700" MaxHeight="550">
+        Title="System klasyfikacji" Height="500" Width="600" Background="Red" MinWidth="420" MinHeight="400" MaxWidth="700" MaxHeight="550">
     <Grid Background="Black" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition/>
